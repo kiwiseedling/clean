@@ -624,7 +624,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       </div>
       
       {/* Main grid */}
-      <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-14">
+      <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-20">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
 
           {/* Left: form */}
