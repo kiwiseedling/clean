@@ -158,7 +158,7 @@ function DoorstepSection() {
             doorstep collection feel premium.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            Our residential valet waste service collects door-to-door from every occupied apartment — residents stage tied bags during the scheduled window, BinBuddy handles the rest, and the community gets cleaner corridors with less friction around everyday trash disposal.
+            Our residential valet waste service collects door-to-door from every occupied apartment — residents stage tied bags during the scheduled window, JunkDrive handles the rest, and the community gets cleaner corridors with less friction around everyday trash disposal.
           </p>
         </div>
 
@@ -259,7 +259,7 @@ function SBSection() {
             for California multifamily properties.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            For California communities, we can position BinBuddy as an implementation partner that helps onsite teams manage resident education, collection setup, contamination reduction, and everyday program follow-through around SB-1383.
+            For California communities, we can position JunkDrive as an implementation partner that helps onsite teams manage resident education, collection setup, contamination reduction, and everyday program follow-through around SB-1383.
           </p>
         </div>
 
@@ -381,7 +381,7 @@ function Pricing() {
           <div className="rounded-2xl p-7" style={{ background: "#0f2d1f" }}>
             <p className="mb-2 text-sm font-bold text-white">Need both services?</p>
             <p className="mb-5 text-sm leading-relaxed" style={{ color: "rgba(163,217,184,0.7)" }}>
-              Trash valet works best when paired with BinBuddy bulk trash support for cleanouts, overflow, and move-out volume.
+              Trash valet works best when paired with JunkDrive bulk trash support for cleanouts, overflow, and move-out volume.
             </p>
             <Link href="/" className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-white transition-all hover:opacity-90" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.12)" }}>
               View Bulk Trash Service <Arrow className="h-3.5 w-3.5" />
@@ -405,7 +405,7 @@ function FAQ() {
     },
     {
       q: "How does SB-1383 support fit in?",
-      a: "For California multifamily properties, BinBuddy can support the collection setup, resident education, contamination reduction, and program follow-through tied to organics requirements.",
+      a: "For California multifamily properties, JunkDrive can support the collection setup, resident education, contamination reduction, and program follow-through tied to organics requirements.",
     },
     {
       q: "Do you still need a launch check?",

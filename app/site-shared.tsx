@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import logoWhiteImage from "../images/bblogo.png";
+import logoWhiteImage from "../images/junkdrive.png";
 
 type IconProps = { className?: string; style?: React.CSSProperties };
 
@@ -104,7 +104,7 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
     >
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Image src={logoWhiteImage} alt="BinBuddy logo" className="h-7 w-auto" priority />
+          <Image src={logoWhiteImage} alt="JunkDrive logo" className="h-7 w-auto" priority />
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
@@ -227,7 +227,7 @@ export function Footer() {
 
           {/* Col 1: Brand */}
           <div>
-            <h3 className="mb-3 text-base font-bold text-white">BinBuddy</h3>
+            <h3 className="mb-3 text-base font-bold text-white">JunkDrive</h3>
             <p className="mb-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
               Bulk waste pickup and apartment trash valet for Bay Area property teams, contractors, and businesses.
             </p>
@@ -292,7 +292,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-            © 2026 – Administered by BinBuddy. Bay Area, CA.
+            © 2026 – Administered by JunkDrive. Bay Area, CA.
           </p>
           <div className="flex items-center gap-1 text-xs" style={{ color: "rgba(255,255,255,0.42)" }}>
             <a href="#" className="transition-colors hover:text-white">Terms &amp; Conditions</a>

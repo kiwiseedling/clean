@@ -75,7 +75,7 @@ export async function POST(req: Request) {
 
         <tr>
           <td style="background-color:#0f172a;padding:16px 20px;color:#ffffff;font-size:18px;font-weight:bold;">
-            BinBuddy
+            JunkDrive
           </td>
         </tr>
 
@@ -158,7 +158,7 @@ export async function POST(req: Request) {
 
         <tr>
           <td style="background-color:#f1f5f9;text-align:center;padding:14px;font-size:12px;color:#64748b;">
-            © 2026 BinBuddy • Reliable Waste & Valet Services
+            © 2026 JunkDrive • Reliable Waste & Valet Services
           </td>
         </tr>
 
@@ -174,7 +174,7 @@ export async function POST(req: Request) {
         await resend.emails.send({
           from: fromEmail,
           to: email,
-          subject: "Booking Confirmed — BinBuddy",
+          subject: "Booking Confirmed — JunkDrive",
           html: customerTemplate,
         });
       }
@@ -228,7 +228,7 @@ export async function POST(req: Request) {
         await resend.emails.send({
           from: fromEmail,
           to: email,
-          subject: "We received your trash valet request — BinBuddy",
+          subject: "We received your trash valet request — JunkDrive",
           html: `
             <h2>Thanks, ${name || "there"}!</h2>
             <p>We received your trash valet inquiry and will follow up within one business day.</p>
