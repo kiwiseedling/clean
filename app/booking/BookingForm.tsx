@@ -622,14 +622,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
           })}
         </div>
       </div>
-
-      {/* Description */}
-      <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-0">
-        <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-          Bay Area bulk waste removal and junk hauling — on-demand service for residents, businesses, property teams, and contractors. Upfront pricing, no hassle.
-        </p>
-      </div>
-
+      
       {/* Main grid */}
       <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
