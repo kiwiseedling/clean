@@ -31,8 +31,8 @@ function HowItWorks() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-14 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>How It Works</p>
-          <h2 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>How It Works</p>
+          <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Book to done<br />in three steps.
           </h2>
           <p className="leading-relaxed text-gray-500">
@@ -42,10 +42,10 @@ function HowItWorks() {
         <div className="grid gap-5 md:grid-cols-3">
           {steps.map((s) => (
             <div key={s.n} className="rounded-[28px] border border-gray-100 bg-white p-7 card-shadow">
-              <p className="mb-4 text-4xl font-black" style={{ color: "rgba(34,118,74,0.12)", letterSpacing: "-0.04em" }}>{s.n}</p>
-              <p className="mb-2 text-lg font-bold" style={{ color: "#0a1f14" }}>{s.title}</p>
+              <p className="mb-4 text-4xl font-black" style={{ color: "rgba(70,70,70,0.12)", letterSpacing: "-0.04em" }}>{s.n}</p>
+              <p className="mb-2 text-lg font-bold" style={{ color: "#0c0c0c" }}>{s.title}</p>
               <p className="mb-4 text-sm leading-relaxed text-gray-500">{s.body}</p>
-              <p className="text-xs font-semibold" style={{ color: "#22764a" }}>{s.detail}</p>
+              <p className="text-xs font-semibold" style={{ color: "#555555" }}>{s.detail}</p>
             </div>
           ))}
         </div>
@@ -73,8 +73,8 @@ function WhatWeHaul() {
     <section className="py-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-14 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>What We Haul</p>
-          <h2 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>What We Haul</p>
+          <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Most things in your home<br />or property — we take it.
           </h2>
           <p className="leading-relaxed text-gray-500">
@@ -84,11 +84,11 @@ function WhatWeHaul() {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {accepts.map(({ label, note }) => (
             <div key={label} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-5 card-shadow">
-              <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#edfaf3", color: "#22764a" }}>
+              <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#f4f4f4", color: "#555555" }}>
                 <Check />
               </div>
               <div>
-                <p className="text-sm font-semibold" style={{ color: "#0a1f14" }}>{label}</p>
+                <p className="text-sm font-semibold" style={{ color: "#0c0c0c" }}>{label}</p>
                 <p className="text-xs text-gray-400">{note}</p>
               </div>
             </div>
@@ -128,8 +128,8 @@ function BulkPricing() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-14 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>Transparent Pricing</p>
-          <h2 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>Transparent Pricing</p>
+          <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Upfront ranges.<br />Price locked before we touch anything.
           </h2>
           <p className="leading-relaxed text-gray-500">
@@ -140,25 +140,25 @@ function BulkPricing() {
           {tiers.map(({ label, range, note, hi }) => (
             <div key={label} className="relative rounded-2xl border p-6 pt-8 transition-all"
               style={hi
-                ? { background: "#0f2d1f", borderColor: "rgba(106,191,142,0.15)", boxShadow: "0 20px 40px rgba(10,31,20,0.18)" }
+                ? { background: "#111111", borderColor: "rgba(180,180,180,0.15)", boxShadow: "0 20px 40px rgba(10,10,10,0.18)" }
                 : { background: "white", borderColor: "#e5e7eb", boxShadow: "0 4px 16px rgba(0,0,0,0.04)" }}>
               {hi && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold" style={{ background: "#22764a", color: "white" }}>
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold" style={{ background: "#555555", color: "white" }}>
                   Most common
                 </span>
               )}
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: hi ? "rgba(163,217,184,0.55)" : "#9ca3af" }}>{label}</p>
-              <p className="mb-3 text-xl font-black whitespace-nowrap" style={{ color: hi ? "#b8e8ce" : "#0a1f14", letterSpacing: "-0.02em" }}>{range}</p>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: hi ? "rgba(200,200,200,0.55)" : "#9ca3af" }}>{label}</p>
+              <p className="mb-3 text-xl font-black whitespace-nowrap" style={{ color: hi ? "#cccccc" : "#0c0c0c", letterSpacing: "-0.02em" }}>{range}</p>
               <p className="text-xs leading-relaxed" style={{ color: hi ? "rgba(255,255,255,0.72)" : "#9ca3af" }}>{note}</p>
             </div>
           ))}
         </div>
         <div className="rounded-[28px] border border-gray-100 bg-[#fafafa] p-7 card-shadow">
-          <p className="mb-5 text-sm font-bold" style={{ color: "#0a1f14" }}>Included in every job</p>
+          <p className="mb-5 text-sm font-bold" style={{ color: "#0c0c0c" }}>Included in every job</p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {included.map((item) => (
               <div key={item} className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#edfaf3", color: "#22764a" }}>
+                <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#f4f4f4", color: "#555555" }}>
                   <Check />
                 </div>
                 <p className="text-sm text-gray-600">{item}</p>
@@ -202,22 +202,22 @@ function BulkFAQ() {
     <section className="py-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-12 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>FAQ</p>
-          <h2 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>FAQ</p>
+          <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Common questions<br />about bulk pickup.
           </h2>
         </div>
         <div className="mb-10 grid gap-4 md:grid-cols-2">
           {items.map((item) => (
             <div key={item.q} className="rounded-2xl border border-gray-100 bg-white p-6 card-shadow">
-              <p className="mb-2 text-sm font-bold" style={{ color: "#0a1f14" }}>{item.q}</p>
+              <p className="mb-2 text-sm font-bold" style={{ color: "#0c0c0c" }}>{item.q}</p>
               <p className="text-sm leading-relaxed text-gray-500">{item.a}</p>
             </div>
           ))}
         </div>
-        <div className="rounded-[28px] p-8 text-center" style={{ background: "#0f2d1f" }}>
+        <div className="rounded-[28px] p-8 text-center" style={{ background: "#111111" }}>
           <p className="mb-2 text-lg font-bold text-white">Still have questions?</p>
-          <p className="mb-6 text-sm" style={{ color: "rgba(163,217,184,0.7)" }}>Call or text us — we answer fast and can usually give you a ballpark on the spot.</p>
+          <p className="mb-6 text-sm" style={{ color: "rgba(200,200,200,0.7)" }}>Call or text us — we answer fast and can usually give you a ballpark on the spot.</p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href="tel:+17132822588" className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:opacity-90" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.12)" }}>
               (713) 282 2588

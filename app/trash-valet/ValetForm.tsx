@@ -72,7 +72,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
   ];
 
   const serviceOptions = isManager ? managerServices : residentServices;
-  const inputCls = "w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-gray-200 placeholder:text-gray-500 outline-none transition-colors focus:border-green-600";
+  const inputCls = "w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-gray-200 placeholder:text-gray-500 outline-none transition-colors focus:border-gray-400";
 
   const handleSubmit = async () => {
     setSubmitting(true);
@@ -113,8 +113,8 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
       return (
         <div className="py-6 text-center">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full"
-            style={{ background: "rgba(34,118,74,0.3)", border: "2px solid rgba(106,191,142,0.5)" }}>
-            <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#6abf8e" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+            style={{ background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)" }}>
+            <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#aaaaaa" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
@@ -148,7 +148,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                   }}
                   className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-all"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(34,118,74,0.15)"; e.currentTarget.style.borderColor = "rgba(106,191,142,0.3)"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(70,70,70,0.15)"; e.currentTarget.style.borderColor = "rgba(180,180,180,0.3)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                 >
                   <div>
@@ -188,12 +188,12 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
               </div>
               {isManager && (
                 <>
-                  <select value={form.propertyType} onChange={(e) => setForm((f) => ({ ...f, propertyType: e.target.value }))} className={inputCls} style={{ color: form.propertyType ? "rgba(209,236,221,0.9)" : "rgba(255,255,255,0.35)" }}>
-                    <option value="" disabled style={{ color: "#0a1f14" }}>Property type</option>
-                    <option value="multifamily" style={{ color: "#0a1f14" }}>Multifamily</option>
-                    <option value="student" style={{ color: "#0a1f14" }}>Student housing</option>
-                    <option value="condo" style={{ color: "#0a1f14" }}>Condo / HOA</option>
-                    <option value="mixed" style={{ color: "#0a1f14" }}>Mixed-use</option>
+                  <select value={form.propertyType} onChange={(e) => setForm((f) => ({ ...f, propertyType: e.target.value }))} className={inputCls} style={{ color: form.propertyType ? "rgba(200,200,200,0.9)" : "rgba(255,255,255,0.35)" }}>
+                    <option value="" disabled style={{ color: "#0c0c0c" }}>Property type</option>
+                    <option value="multifamily" style={{ color: "#0c0c0c" }}>Multifamily</option>
+                    <option value="student" style={{ color: "#0c0c0c" }}>Student housing</option>
+                    <option value="condo" style={{ color: "#0c0c0c" }}>Condo / HOA</option>
+                    <option value="mixed" style={{ color: "#0c0c0c" }}>Mixed-use</option>
                   </select>
                   <input type="text" placeholder="Number of units on site" value={form.units} onChange={(e) => setForm((f) => ({ ...f, units: e.target.value }))} className={inputCls} />
                 </>
@@ -216,12 +216,12 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                     onClick={() => toggleService(s)}
                     className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-all"
                     style={{
-                      background: active ? "rgba(34,118,74,0.25)" : "rgba(255,255,255,0.04)",
-                      border: active ? "1px solid rgba(106,191,142,0.5)" : "1px solid rgba(255,255,255,0.08)",
+                      background: active ? "rgba(70,70,70,0.25)" : "rgba(255,255,255,0.04)",
+                      border: active ? "1px solid rgba(180,180,180,0.5)" : "1px solid rgba(255,255,255,0.08)",
                     }}
                   >
                     <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded"
-                      style={{ background: active ? "#22764a" : "transparent", border: active ? "none" : "1.5px solid rgba(255,255,255,0.2)" }}>
+                      style={{ background: active ? "#555555" : "transparent", border: active ? "none" : "1.5px solid rgba(255,255,255,0.2)" }}>
                       {active && <Check className="w-3 h-3 text-white" />}
                     </div>
                     <span className="text-sm font-medium text-white">{s}</span>
@@ -230,11 +230,11 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
               })}
             </div>
             {isManager && (
-              <select value={form.frequency} onChange={(e) => setForm((f) => ({ ...f, frequency: e.target.value }))} className={`${inputCls} mt-3`} style={{ color: form.frequency ? "rgba(209,236,221,0.9)" : "rgba(255,255,255,0.35)" }}>
-                <option value="" disabled style={{ color: "#0a1f14" }}>Service frequency</option>
-                <option value="5nights" style={{ color: "#0a1f14" }}>5 nights / week</option>
-                <option value="7nights" style={{ color: "#0a1f14" }}>7 nights / week</option>
-                <option value="custom" style={{ color: "#0a1f14" }}>Custom schedule</option>
+              <select value={form.frequency} onChange={(e) => setForm((f) => ({ ...f, frequency: e.target.value }))} className={`${inputCls} mt-3`} style={{ color: form.frequency ? "rgba(200,200,200,0.9)" : "rgba(255,255,255,0.35)" }}>
+                <option value="" disabled style={{ color: "#0c0c0c" }}>Service frequency</option>
+                <option value="5nights" style={{ color: "#0c0c0c" }}>5 nights / week</option>
+                <option value="7nights" style={{ color: "#0c0c0c" }}>7 nights / week</option>
+                <option value="custom" style={{ color: "#0c0c0c" }}>Custom schedule</option>
               </select>
             )}
           </div>
@@ -250,12 +250,12 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
               <input type="tel" placeholder="Phone number" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} className={inputCls} />
               <input type="email" placeholder="Email address" value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} className={inputCls} />
               {isManager && (
-                <select value={form.timeline} onChange={(e) => setForm((f) => ({ ...f, timeline: e.target.value }))} className={inputCls} style={{ color: form.timeline ? "rgba(209,236,221,0.9)" : "rgba(255,255,255,0.35)" }}>
-                  <option value="" disabled style={{ color: "#0a1f14" }}>When would you like to start?</option>
-                  <option value="asap" style={{ color: "#0a1f14" }}>As soon as possible</option>
-                  <option value="30days" style={{ color: "#0a1f14" }}>Within 30 days</option>
-                  <option value="1-3months" style={{ color: "#0a1f14" }}>1–3 months</option>
-                  <option value="researching" style={{ color: "#0a1f14" }}>Just researching</option>
+                <select value={form.timeline} onChange={(e) => setForm((f) => ({ ...f, timeline: e.target.value }))} className={inputCls} style={{ color: form.timeline ? "rgba(200,200,200,0.9)" : "rgba(255,255,255,0.35)" }}>
+                  <option value="" disabled style={{ color: "#0c0c0c" }}>When would you like to start?</option>
+                  <option value="asap" style={{ color: "#0c0c0c" }}>As soon as possible</option>
+                  <option value="30days" style={{ color: "#0c0c0c" }}>Within 30 days</option>
+                  <option value="1-3months" style={{ color: "#0c0c0c" }}>1–3 months</option>
+                  <option value="researching" style={{ color: "#0c0c0c" }}>Just researching</option>
                 </select>
               )}
               <textarea placeholder="Any notes or questions? (optional)" value={form.notes} onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))} className={`${inputCls} resize-none`} rows={2} />
@@ -269,8 +269,8 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
   };
 
   const stepLabels = ["Who", "Property", "Services", "Contact"];
-  const accent = "#6abf8e";
-  const accentDim = "rgba(163,217,184,0.65)";
+  const accent = "#aaaaaa";
+  const accentDim = "rgba(200,200,200,0.65)";
   const glass: React.CSSProperties = {
     background: "rgba(22,24,26,0.82)",
     border: "1px solid rgba(255,255,255,0.08)",
@@ -356,7 +356,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
       return (
         <div style={glass}>
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full"
-            style={{ background: "rgba(34,118,74,0.3)", border: "2px solid rgba(106,191,142,0.5)" }}>
+            style={{ background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)" }}>
             <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke={accent} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
@@ -456,13 +456,13 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
 
   return (
     <Fragment>
-      <div style={{ background: "#071912" }}>
+      <div style={{ background: "#0a0a0a" }}>
 
         {/* Sticky step indicator */}
-        <div className="sticky top-16 z-40" style={{ background: "#071912", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="sticky top-16 z-40" style={{ background: "#0a0a0a", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="mx-auto max-w-6xl px-6 py-4">
             <div className="mb-2 flex items-center justify-between lg:hidden">
-              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(106,191,142,0.55)" }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(180,180,180,0.55)" }}>
                 Step {submitted ? stepLabels.length : step + 1} of {stepLabels.length}
               </p>
               <p className="text-sm font-semibold text-white">
@@ -477,11 +477,11 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                       className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-all duration-300"
                       style={
                         submitted
-                          ? { background: "rgba(34,118,74,0.3)", border: "2px solid rgba(106,191,142,0.5)", color: accent }
+                          ? { background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)", color: accent }
                           : i < step
-                          ? { background: "rgba(34,118,74,0.3)", border: "2px solid rgba(106,191,142,0.5)", color: accent }
+                          ? { background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)", color: accent }
                           : i === step
-                          ? { background: "#22764a", border: "2px solid #6abf8e", color: "#fff" }
+                          ? { background: "#555555", border: "2px solid #aaaaaa", color: "#fff" }
                           : { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.3)" }
                       }
                     >
@@ -503,7 +503,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                   {i < stepLabels.length - 1 && (
                     <div
                       className="mx-1 h-px flex-1 transition-all duration-500 sm:mx-2"
-                      style={{ background: i < step || submitted ? "rgba(106,191,142,0.4)" : "rgba(255,255,255,0.08)" }}
+                      style={{ background: i < step || submitted ? "rgba(180,180,180,0.4)" : "rgba(255,255,255,0.08)" }}
                     />
                   )}
                 </Fragment>
@@ -535,7 +535,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                     <button
                       onClick={next}
                       className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}
+                      style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}
                     >
                       Continue <Arrow />
                     </button>
@@ -557,7 +557,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                         onClick={handleSubmit}
                         disabled={submitting}
                         className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
-                        style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}
+                        style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}
                       >
                         {submitting ? "Submitting…" : isManager ? "Request Proposal" : "Submit Request"} {!submitting && <Arrow />}
                       </button>
