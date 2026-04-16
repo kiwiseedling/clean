@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Fragment, useEffect, useRef } from "react";
+import { useState, Fragment, useEffect, useRef, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Arrow, Camera, Check, Footer, Navbar } from "../site-shared";
@@ -990,7 +990,9 @@ export default function BookingPage() {
   return (
     <main>
       <Navbar primaryHref="/booking" primaryLabel="Book Pickup" mode="home" />
-      <BookingExperience />
+      <Suspense fallback={<div style={{ minHeight: "100vh", background: "#071912" }} />}>
+        <BookingExperience />
+      </Suspense>
       <HowItWorks />
       <WhatWeHaul />
       <BulkPricing />
