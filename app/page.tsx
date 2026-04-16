@@ -7,12 +7,12 @@ import { Arrow, Check, Footer, Navbar, Phone } from "./site-shared";
 
 function Hero() {
   const router = useRouter();
-  const [form, setForm] = useState({ name: "", phone: "", service: "" });
-  const canBook = form.name.trim() !== "" && form.phone.trim() !== "" && form.service !== "";
+  const [form, setForm] = useState({ name: "", email: "", service: "" });
+  const canBook = form.name.trim() !== "" && form.email.trim() !== "" && form.service !== "";
 
   const handleBook = () => {
     if (!canBook) return;
-    const params = new URLSearchParams({ name: form.name, phone: form.phone });
+    const params = new URLSearchParams({ name: form.name, email: form.email });
     router.push(form.service === "bulk" ? `/booking?${params}` : `/trash-valet?${params}`);
   };
 
@@ -189,10 +189,10 @@ function Hero() {
               className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-800 outline-none transition-colors focus:border-green-600"
             />
             <input
-              type="tel"
-              placeholder="Phone number"
-              value={form.phone}
-              onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+              type="email"
+              placeholder="Email address"
+              value={form.email}
+              onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
               className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-800 outline-none transition-colors focus:border-green-600"
             />
             <select

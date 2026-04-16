@@ -122,7 +122,7 @@ function AnimatedPrice({ value, className, style }: { value: number; className?:
   );
 }
 
-export default function BookingExperience({ initialName = "", initialPhone = "" }: { initialName?: string; initialPhone?: string }) {
+export default function BookingExperience({ initialName = "", initialEmail = "" }: { initialName?: string; initialEmail?: string }) {
   const [activeStep, setActiveStep] = useState<StepId>("amount");
   const [item, setItem] = useState<(typeof itemOptions)[number]["id"]>("boxes");
   const [load, setLoad] = useState<(typeof loadOptions)[number]["id"]>("single");
@@ -134,7 +134,8 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
   const [schedule, setSchedule] = useState<(typeof scheduleOptions)[number]["id"]>("next-day");
   const [time, setTime] = useState<(typeof timeWindows)[number]["id"]>("morning");
   const [name, setName] = useState(initialName);
-  const [contact, setContact] = useState(initialPhone);
+  const [contact, setContact] = useState("");
+  const [email, setEmail] = useState(initialEmail);
   const [photosAttached, setPhotosAttached] = useState(false);
   const [booked, setBooked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -186,7 +187,8 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
   const scheduleLabel = scheduleOptions.find((option) => option.id === schedule)?.label ?? "";
   const timeLabel = getTimeLabel(time);
   const stepIndex = steps.findIndex((step) => step.id === activeStep);
-  const canBook = Boolean(address.trim() && name.trim() && contact.trim());
+  const canBook = Boolean(email.trim());
+  const canContinueDetails = activeStep !== "details" || email.trim().length > 0;
 
   const handleSubmit = async () => {
     setSubmitting(true);
@@ -199,6 +201,7 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
           formType: "booking",
           name,
           contact,
+          email,
           address,
           load: loadLabel,
           schedule: scheduleLabel,
@@ -264,20 +267,27 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
     switch (activeStep) {
       case "amount":
         return (
-          <div style={glass}>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Live Estimate</p>
-            <p className="mb-5 text-lg font-bold leading-snug text-white">Price updates instantly.<br />No callbacks. No guessing.</p>
-            <div className="relative mb-4 overflow-hidden rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", height: "110px", marginTop: "24px", opacity: 0.5 }}>
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 260 110" fill="none" preserveAspectRatio="none">
-                <rect x="14" y="14" width="232" height="82" rx="5" stroke="rgba(255,255,255,0.07)" strokeWidth="1.5" />
-                <rect x="26" y="26" width="50" height="46" rx="3" fill="rgba(34,118,74,0.18)" stroke="rgba(106,191,142,0.22)" strokeWidth="1" />
-                <rect x="86" y="32" width="38" height="40" rx="3" fill="rgba(34,118,74,0.13)" stroke="rgba(106,191,142,0.17)" strokeWidth="1" />
-                <rect x="134" y="22" width="58" height="54" rx="3" fill="rgba(34,118,74,0.18)" stroke="rgba(106,191,142,0.22)" strokeWidth="1" />
-                <rect x="202" y="36" width="34" height="38" rx="3" fill="rgba(34,118,74,0.13)" stroke="rgba(106,191,142,0.17)" strokeWidth="1" />
-              </svg>
-              <div className="animate-scan-line" style={{ position: "absolute", left: "12px", right: "12px", height: "2px", top: 0, background: "linear-gradient(90deg, transparent, #6abf8e, transparent)", boxShadow: "0 0 10px rgba(106,191,142,0.7)" }} />
+          <>
+            <div style={glass}>
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Live Estimate</p>
+              <p className="mb-5 text-lg font-bold leading-snug text-white">Price updates instantly.<br />No callbacks. No guessing.</p>
+              <div className="relative mb-4 overflow-hidden rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", height: "110px", marginTop: "24px", opacity: 0.5 }}>
+                <svg className="absolute inset-0 h-full w-full" viewBox="0 0 260 110" fill="none" preserveAspectRatio="none">
+                  <rect x="14" y="14" width="232" height="82" rx="5" stroke="rgba(255,255,255,0.07)" strokeWidth="1.5" />
+                  <rect x="26" y="26" width="50" height="46" rx="3" fill="rgba(34,118,74,0.18)" stroke="rgba(106,191,142,0.22)" strokeWidth="1" />
+                  <rect x="86" y="32" width="38" height="40" rx="3" fill="rgba(34,118,74,0.13)" stroke="rgba(106,191,142,0.17)" strokeWidth="1" />
+                  <rect x="134" y="22" width="58" height="54" rx="3" fill="rgba(34,118,74,0.18)" stroke="rgba(106,191,142,0.22)" strokeWidth="1" />
+                  <rect x="202" y="36" width="34" height="38" rx="3" fill="rgba(34,118,74,0.13)" stroke="rgba(106,191,142,0.17)" strokeWidth="1" />
+                </svg>
+                <div className="animate-scan-line" style={{ position: "absolute", left: "12px", right: "12px", height: "2px", top: 0, background: "linear-gradient(90deg, transparent, #6abf8e, transparent)", boxShadow: "0 0 10px rgba(106,191,142,0.7)" }} />
+              </div>
             </div>
-          </div>
+            <button type="button" onClick={nextStep}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-bold text-white transition-all hover:opacity-90"
+              style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
+              Continue <Arrow className="h-4 w-4" />
+            </button>
+          </>
         );
 
       case "logistics":
@@ -521,10 +531,15 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
       case "details":
         return (
           <div className="space-y-3">
+            <div>
+              <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address *"
+                className="w-full rounded-2xl px-4 py-3 text-sm" style={{ ...inputStyle, borderColor: email.trim() ? "rgba(106,191,142,0.4)" : "rgba(255,255,255,0.1)" }} />
+              <p className="mt-1.5 text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>We'll send your confirmation here</p>
+            </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name"
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name (optional)"
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={inputStyle} />
-              <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Phone or email"
+              <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Phone (optional)"
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={inputStyle} />
             </div>
             <label className="flex h-24 w-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed transition-all"
@@ -627,7 +642,7 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
                   {formatMoney(livePrice)} locked in.
                 </h2>
                 <p className="mb-6 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  Pickup booked for <strong className="text-white">{scheduleLabel.toLowerCase()}</strong> in the <strong className="text-white">{timeLabel}</strong> window. Confirmation sent to <strong className="text-white">{contact}</strong>.
+                  Pickup booked for <strong className="text-white">{scheduleLabel.toLowerCase()}</strong> in the <strong className="text-white">{timeLabel}</strong> window. Confirmation sent to <strong className="text-white">{email}</strong>.
                 </p>
                 <div className="space-y-3">
                   {["SMS on the day — We're on the way.", "Crew verifies load before touching anything.", "Updated price shown if the load changed."].map((text) => (
@@ -655,9 +670,9 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
                       Back
                     </button>
                   )}
-                  {activeStep !== "confirm" && (
-                    <button type="button" onClick={nextStep}
-                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:opacity-90"
+                  {activeStep !== "confirm" && activeStep !== "amount" && (
+                    <button type="button" onClick={nextStep} disabled={!canContinueDetails}
+                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
                       style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
                       Continue <Arrow className="h-4 w-4" />
                     </button>

@@ -3,7 +3,7 @@ import { Arrow, Check, Footer, Navbar } from "../site-shared";
 import BookingExperience from "./BookingForm";
 
 type PageProps = {
-  searchParams: Promise<{ name?: string; phone?: string }>;
+  searchParams: Promise<{ name?: string; email?: string }>;
 };
 
 function HowItWorks() {
@@ -235,12 +235,12 @@ function BulkFAQ() {
 export default async function BookingPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const initialName = params.name ?? "";
-  const initialPhone = params.phone ?? "";
+  const initialEmail = params.email ?? "";
 
   return (
     <main>
       <Navbar primaryHref="/booking" primaryLabel="Book Pickup" mode="home" />
-      <BookingExperience initialName={initialName} initialPhone={initialPhone} />
+      <BookingExperience initialName={initialName} initialEmail={initialEmail} />
       <HowItWorks />
       <WhatWeHaul />
       <BulkPricing />

@@ -3,7 +3,7 @@
 import { useState, useRef, Fragment } from "react";
 import { Arrow, Check } from "../site-shared";
 
-export default function ValetFormSection({ initialName = "", initialPhone = "" }: { initialName?: string; initialPhone?: string }) {
+export default function ValetFormSection({ initialName = "", initialEmail = "" }: { initialName?: string; initialEmail?: string }) {
   const [step, setStep] = useState(0);
   const [userType, setUserType] = useState<"resident" | "property" | "">("");
   const [services, setServices] = useState<string[]>([]);
@@ -11,8 +11,8 @@ export default function ValetFormSection({ initialName = "", initialPhone = "" }
     propertyName: "", unit: "", address: "", city: "", zip: "",
     propertyType: "", units: "", frequency: "", timeline: "",
     name: initialName,
-    phone: initialPhone,
-    email: "", notes: "",
+    phone: "",
+    email: initialEmail, notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);

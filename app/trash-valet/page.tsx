@@ -437,18 +437,18 @@ function FAQ() {
 }
 
 type PageProps = {
-  searchParams: Promise<{ name?: string; phone?: string }>;
+  searchParams: Promise<{ name?: string; email?: string }>;
 };
 
 export default async function TrashValetPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const initialName = params.name ?? "";
-  const initialPhone = params.phone ?? "";
+  const initialEmail = params.email ?? "";
   return (
     <main>
       <Navbar primaryHref="/booking" primaryLabel="Book Pickup" mode="home" />
       <ValetHeroIntro />
-      <ValetFormSection initialName={initialName} initialPhone={initialPhone} />
+      <ValetFormSection initialName={initialName} initialEmail={initialEmail} />
       <PageTabs />
       <DoorstepSection />
       <ConnectSection />
