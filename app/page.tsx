@@ -158,7 +158,7 @@ function Hero() {
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-widest"
             style={{ color: "#6abf8e", borderColor: "rgba(106,191,142,0.25)", background: "rgba(106,191,142,0.08)" }}>
             <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full" style={{ background: "#6abf8e" }} />
-            Bay Area · Upfront Pricing · Within 24 Hours
+            Within 24 Hours
           </p>
 
           <h1 className="mb-5 font-black text-white"
