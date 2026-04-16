@@ -654,9 +654,11 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             ) : (
               <>
                 <div className="mb-6">
-                  <div className="mb-1 flex items-center justify-between lg:block">
+                  <div className="mb-1 flex items-center justify-between">
                     <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(106,191,142,0.55)" }}>Step {stepIndex + 1} of {steps.length}</p>
-                    <AnimatedPrice value={livePrice} className="font-black text-white lg:hidden" style={{ fontSize: "1.5rem", letterSpacing: "-0.04em", lineHeight: 1 }} />
+                    <div className="lg:hidden">
+                      <AnimatedPrice value={livePrice} className="font-black text-white" style={{ fontSize: "1.5rem", letterSpacing: "-0.04em", lineHeight: 1 }} />
+                    </div>
                   </div>
                   <h2 className="font-black text-white" style={{ fontSize: "clamp(1.6rem,2.8vw,2.2rem)", letterSpacing: "-0.035em" }}>{steps[stepIndex].title}</h2>
                 </div>
