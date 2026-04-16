@@ -1,26 +1,27 @@
 import { Resend } from "resend";
 
 export async function POST(req: Request) {
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-  if (!apiKey) {
-    return Response.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
-  }
-
-  const resend = new Resend(apiKey);
-  const from = (process.env.FROM_EMAIL ?? "").trim();
-  const adminEmail = (process.env.ADMIN_EMAIL ?? "contact@baybinbutlers.com").trim();
-
-  if (!from) {
-    return Response.json({ error: "Missing FROM_EMAIL" }, { status: 500 });
-  }
-
-  async function send(payload: Parameters<typeof resend.emails.send>[0]) {
-    const { data, error } = await resend.emails.send(payload);
-    if (error) throw new Error(JSON.stringify(error));
-    return data;
-  }
-
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+      return Response.json(
+        { error: "Missing RESEND_API_KEY" },
+        { status: 500 }
+      );
+    }
+
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const fromEmail = process.env.FROM_EMAIL;
+
+    if (!adminEmail || !fromEmail) {
+      return Response.json(
+        { error: "Missing ADMIN_EMAIL or FROM_EMAIL" },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const body = await req.json();
     const { formType } = body;
 
@@ -28,8 +29,8 @@ export async function POST(req: Request) {
     if (formType === "booking") {
       const { name, contact, email, address, load, schedule, time, property, stairs, livePrice } = body;
 
-      await send({
-        from,
+      await resend.emails.send({
+        from: fromEmail,
         to: adminEmail,
         subject: `New Bulk Pickup Request from ${name || email}`,
         html: `
@@ -49,8 +50,8 @@ export async function POST(req: Request) {
       });
 
       if (email) {
-        await send({
-          from,
+        await resend.emails.send({
+          from: fromEmail,
           to: email,
           subject: "We received your pickup request — BinButler",
           html: `
@@ -72,8 +73,8 @@ export async function POST(req: Request) {
     if (formType === "valet") {
       const { name, phone, email, propertyName, address, city, zip, propertyType, units, frequency, timeline, services, notes, userType } = body;
 
-      await send({
-        from,
+      await resend.emails.send({
+        from: fromEmail,
         to: adminEmail,
         subject: `New Trash Valet Request from ${name}`,
         html: `
@@ -96,8 +97,8 @@ export async function POST(req: Request) {
       });
 
       if (email) {
-        await send({
-          from,
+        await resend.emails.send({
+          from: fromEmail,
           to: email,
           subject: "We received your trash valet request — BinButler",
           html: `
@@ -116,8 +117,10 @@ export async function POST(req: Request) {
 
     return Response.json({ error: "Unknown formType" }, { status: 400 });
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error("[send route]", message);
-    return Response.json({ error: message }, { status: 500 });
+    console.error(error);
+    return Response.json(
+      { error: "Failed to send email" },
+      { status: 500 }
+    );
   }
 }
