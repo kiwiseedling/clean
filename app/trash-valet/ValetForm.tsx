@@ -114,7 +114,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
         <div className="py-6 text-center">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full"
             style={{ background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)" }}>
-            <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#aaaaaa" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+            <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="#c8c8c8" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
@@ -221,7 +221,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                     }}
                   >
                     <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded"
-                      style={{ background: active ? "#555555" : "transparent", border: active ? "none" : "1.5px solid rgba(255,255,255,0.2)" }}>
+                      style={{ background: active ? "#3a3a3a" : "transparent", border: active ? "none" : "1.5px solid rgba(255,255,255,0.2)" }}>
                       {active && <Check className="w-3 h-3 text-white" />}
                     </div>
                     <span className="text-sm font-medium text-white">{s}</span>
@@ -269,7 +269,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
   };
 
   const stepLabels = ["Who", "Property", "Services", "Contact"];
-  const accent = "#aaaaaa";
+  const accent = "#c8c8c8";
   const accentDim = "rgba(200,200,200,0.65)";
   const glass: React.CSSProperties = {
     background: "rgba(22,24,26,0.82)",
@@ -456,10 +456,10 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
 
   return (
     <Fragment>
-      <div style={{ background: "#0a0a0a" }}>
+      <div style={{ background: "#181818" }}>
 
         {/* Sticky step indicator */}
-        <div className="sticky top-16 z-40" style={{ background: "#0a0a0a", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="sticky top-16 z-40" style={{ background: "#181818", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="mx-auto max-w-6xl px-6 py-4">
             <div className="mb-2 flex items-center justify-between lg:hidden">
               <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(180,180,180,0.55)" }}>
@@ -481,7 +481,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                           : i < step
                           ? { background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)", color: accent }
                           : i === step
-                          ? { background: "#555555", border: "2px solid #aaaaaa", color: "#fff" }
+                          ? { background: "#3a3a3a", border: "2px solid #c8c8c8", color: "#fff" }
                           : { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.3)" }
                       }
                     >
@@ -535,7 +535,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                     <button
                       onClick={next}
                       className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}
+                      style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}
                     >
                       Continue <Arrow />
                     </button>
@@ -557,7 +557,7 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                         onClick={handleSubmit}
                         disabled={submitting}
                         className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
-                        style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}
+                        style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}
                       >
                         {submitting ? "Submitting…" : isManager ? "Request Proposal" : "Submit Request"} {!submitting && <Arrow />}
                       </button>

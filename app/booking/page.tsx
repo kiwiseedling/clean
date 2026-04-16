@@ -31,7 +31,7 @@ function HowItWorks() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-14 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>How It Works</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>How It Works</p>
           <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Book to done<br />in three steps.
           </h2>
@@ -45,7 +45,7 @@ function HowItWorks() {
               <p className="mb-4 text-4xl font-black" style={{ color: "rgba(70,70,70,0.12)", letterSpacing: "-0.04em" }}>{s.n}</p>
               <p className="mb-2 text-lg font-bold" style={{ color: "#0c0c0c" }}>{s.title}</p>
               <p className="mb-4 text-sm leading-relaxed text-gray-500">{s.body}</p>
-              <p className="text-xs font-semibold" style={{ color: "#555555" }}>{s.detail}</p>
+              <p className="text-xs font-semibold" style={{ color: "#3a3a3a" }}>{s.detail}</p>
             </div>
           ))}
         </div>
@@ -73,7 +73,7 @@ function WhatWeHaul() {
     <section className="py-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-14 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>What We Haul</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>What We Haul</p>
           <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Most things in your home<br />or property — we take it.
           </h2>
@@ -84,7 +84,7 @@ function WhatWeHaul() {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {accepts.map(({ label, note }) => (
             <div key={label} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-5 card-shadow">
-              <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#f4f4f4", color: "#555555" }}>
+              <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#f4f4f4", color: "#3a3a3a" }}>
                 <Check />
               </div>
               <div>
@@ -128,7 +128,7 @@ function BulkPricing() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-14 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>Transparent Pricing</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>Transparent Pricing</p>
           <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Upfront ranges.<br />Price locked before we touch anything.
           </h2>
@@ -140,10 +140,10 @@ function BulkPricing() {
           {tiers.map(({ label, range, note, hi }) => (
             <div key={label} className="relative rounded-2xl border p-6 pt-8 transition-all"
               style={hi
-                ? { background: "#111111", borderColor: "rgba(180,180,180,0.15)", boxShadow: "0 20px 40px rgba(10,10,10,0.18)" }
+                ? { background: "#1e1e1e", borderColor: "rgba(180,180,180,0.15)", boxShadow: "0 20px 40px rgba(10,10,10,0.18)" }
                 : { background: "white", borderColor: "#e5e7eb", boxShadow: "0 4px 16px rgba(0,0,0,0.04)" }}>
               {hi && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold" style={{ background: "#555555", color: "white" }}>
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold" style={{ background: "#3a3a3a", color: "white" }}>
                   Most common
                 </span>
               )}
@@ -158,7 +158,7 @@ function BulkPricing() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {included.map((item) => (
               <div key={item} className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#f4f4f4", color: "#555555" }}>
+                <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: "#f4f4f4", color: "#3a3a3a" }}>
                   <Check />
                 </div>
                 <p className="text-sm text-gray-600">{item}</p>
@@ -202,7 +202,7 @@ function BulkFAQ() {
     <section className="py-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-12 max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>FAQ</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>FAQ</p>
           <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.12 }}>
             Common questions<br />about bulk pickup.
           </h2>
@@ -215,7 +215,7 @@ function BulkFAQ() {
             </div>
           ))}
         </div>
-        <div className="rounded-[28px] p-8 text-center" style={{ background: "#111111" }}>
+        <div className="rounded-[28px] p-8 text-center" style={{ background: "#1e1e1e" }}>
           <p className="mb-2 text-lg font-bold text-white">Still have questions?</p>
           <p className="mb-6 text-sm" style={{ color: "rgba(200,200,200,0.7)" }}>Call or text us — we answer fast and can usually give you a ballpark on the spot.</p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">

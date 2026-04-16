@@ -36,7 +36,7 @@ body {
 }
 
 .gradient-hero {
-  background: linear-gradient(135deg, #0a0a0a 0%, #111111 40%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #1e1e1e 40%, #242424 100%);
 }
 
 .gradient-section {

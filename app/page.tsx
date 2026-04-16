@@ -17,7 +17,7 @@ function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-16" style={{ minHeight: "100vh", background: "#0c0c0c" }}>
+    <section className="relative overflow-hidden pt-16" style={{ minHeight: "100vh", background: "#1a1a1a" }}>
 
       {/* ── Background SVG scene ── */}
       <div className="pointer-events-none absolute inset-0 select-none overflow-hidden">
@@ -32,7 +32,7 @@ function Hero() {
           <defs>
             <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#1a1a1a" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#0c0c0c" stopOpacity="1" />
+              <stop offset="100%" stopColor="#1a1a1a" stopOpacity="1" />
             </linearGradient>
           </defs>
 
@@ -44,13 +44,13 @@ function Hero() {
           <circle cx="1280" cy="130" r="50" fill="rgba(180,180,180,0.06)" />
 
           {/* ── Buildings (back row) ── */}
-          <rect x="520"  y="320" width="90"  height="540" fill="rgba(18,18,18,0.9)"  rx="2" />
-          <rect x="620"  y="220" width="120" height="640" fill="rgba(22,22,22,0.88)" rx="2" />
-          <rect x="750"  y="280" width="100" height="580" fill="rgba(18,18,18,0.85)" rx="2" />
-          <rect x="860"  y="180" width="150" height="680" fill="rgba(26,26,26,0.9)"  rx="2" />
-          <rect x="1020" y="260" width="110" height="600" fill="rgba(18,18,18,0.82)" rx="2" />
-          <rect x="1140" y="300" width="90"  height="560" fill="rgba(22,22,22,0.8)"  rx="2" />
-          <rect x="1240" y="350" width="200" height="510" fill="rgba(18,18,18,0.78)" rx="2" />
+          <rect x="520"  y="320" width="90"  height="540" fill="rgba(36,36,36,0.9)"  rx="2" />
+          <rect x="620"  y="220" width="120" height="640" fill="rgba(42,42,42,0.88)" rx="2" />
+          <rect x="750"  y="280" width="100" height="580" fill="rgba(36,36,36,0.85)" rx="2" />
+          <rect x="860"  y="180" width="150" height="680" fill="rgba(48,48,48,0.9)"  rx="2" />
+          <rect x="1020" y="260" width="110" height="600" fill="rgba(36,36,36,0.82)" rx="2" />
+          <rect x="1140" y="300" width="90"  height="560" fill="rgba(42,42,42,0.8)"  rx="2" />
+          <rect x="1240" y="350" width="200" height="510" fill="rgba(36,36,36,0.78)" rx="2" />
 
           {/* ── Windows (glowing dots on buildings) ── */}
           {[
@@ -67,7 +67,7 @@ function Hero() {
           ))}
 
           {/* ── Street / ground ── */}
-          <rect x="0" y="720" width="1440" height="180" fill="rgba(6,6,6,0.97)" />
+          <rect x="0" y="720" width="1440" height="180" fill="rgba(36,36,36,0.97)" />
           <rect x="0" y="718" width="1440" height="5" fill="rgba(70,70,70,0.25)" />
 
           {/* Road center dashes */}
@@ -84,7 +84,7 @@ function Hero() {
           {/* Cab side window */}
           <rect x="376" y="586" width="42"  height="38"  fill="rgba(180,180,180,0.12)" rx="4" />
           {/* Cab grill */}
-          <rect x="284" y="684" width="140" height="12"  fill="rgba(18,18,18,0.6)"    rx="3" />
+          <rect x="284" y="684" width="140" height="12"  fill="rgba(36,36,36,0.6)"    rx="3" />
           <rect x="284" y="698" width="140" height="6"   fill="rgba(70,70,70,0.4)"   rx="2" />
           {/* Headlights */}
           <rect x="286" y="654" width="30" height="18" fill="rgba(255,255,200,0.18)" rx="3" />
@@ -99,12 +99,12 @@ function Hero() {
           <rect x="630" y="545" width="3"   height="175" fill="rgba(0,0,0,0.18)" />
           <rect x="430" y="612" width="340" height="3"   fill="rgba(180,180,180,0.18)" />
           {/* Rear step */}
-          <rect x="765" y="692" width="15"  height="28"  fill="rgba(18,18,18,0.7)"   rx="2" />
+          <rect x="765" y="692" width="15"  height="28"  fill="rgba(36,36,36,0.7)"   rx="2" />
 
           {/* Wheels */}
           {[340, 510, 670].map((cx) => (
             <g key={cx}>
-              <circle cx={cx} cy="730" r="36" fill="rgba(8,8,8,0.95)" />
+              <circle cx={cx} cy="730" r="36" fill="rgba(42,42,42,0.95)" />
               <circle cx={cx} cy="730" r="24" fill="rgba(70,70,70,0.55)" />
               <circle cx={cx} cy="730" r="10" fill="rgba(180,180,180,0.25)" />
               <circle cx={cx} cy="730" r="3"  fill="rgba(180,180,180,0.4)" />
@@ -117,11 +117,11 @@ function Hero() {
 
           {/* ── Trees ── */}
           <ellipse cx="900" cy="650" rx="38" ry="75" fill="rgba(70,70,70,0.28)" />
-          <rect    x="896" y="718" width="8" height="50" fill="rgba(10,10,10,0.5)" />
+          <rect    x="896" y="718" width="8" height="50" fill="rgba(32,32,32,0.5)" />
           <ellipse cx="950" cy="665" rx="28" ry="58" fill="rgba(70,70,70,0.22)" />
-          <rect    x="947" y="720" width="6" height="40" fill="rgba(10,10,10,0.45)" />
+          <rect    x="947" y="720" width="6" height="40" fill="rgba(32,32,32,0.45)" />
           <ellipse cx="990" cy="655" rx="32" ry="66" fill="rgba(70,70,70,0.25)" />
-          <rect    x="987" y="719" width="6" height="46" fill="rgba(10,10,10,0.45)" />
+          <rect    x="987" y="719" width="6" height="46" fill="rgba(32,32,32,0.45)" />
 
           {/* ── Trash bins (curbside) ── */}
           {/* Bin 1 – general */}
@@ -147,7 +147,7 @@ function Hero() {
 
         {/* Left gradient — keeps text readable */}
         <div className="absolute inset-y-0 left-0 w-3/4"
-          style={{ background: "linear-gradient(to right, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.82) 45%, transparent 100%)" }} />
+          style={{ background: "linear-gradient(to right, rgba(32,32,32,0.96) 0%, rgba(32,32,32,0.82) 45%, transparent 100%)" }} />
       </div>
 
       {/* ── Main content ── */}
@@ -156,8 +156,8 @@ function Hero() {
         {/* Left: headline + trust */}
         <div>
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-widest"
-            style={{ color: "#aaaaaa", borderColor: "rgba(180,180,180,0.25)", background: "rgba(180,180,180,0.08)" }}>
-            <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full" style={{ background: "#aaaaaa" }} />
+            style={{ color: "#c8c8c8", borderColor: "rgba(180,180,180,0.25)", background: "rgba(180,180,180,0.08)" }}>
+            <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full" style={{ background: "#c8c8c8" }} />
             Within 24 Hours
           </p>
 
@@ -177,7 +177,7 @@ function Hero() {
 
         {/* Right: booking card */}
         <div className="rounded-[28px] bg-white p-7 card-shadow-xl">
-          <p className="mb-1 text-lg font-bold" style={{ color: "#0c0c0c" }}>Free Estimate</p>
+          <p className="mb-1 text-lg font-bold" style={{ color: "#1a1a1a" }}>Free Estimate</p>
           <p className="mb-5 text-sm text-gray-400">Upfront pricing. No callbacks required.</p>
 
           <div className="space-y-3">
@@ -201,7 +201,7 @@ function Hero() {
               value={form.service}
               onChange={(e) => setForm((f) => ({ ...f, service: e.target.value }))}
               className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition-colors focus:border-gray-400"
-              style={{ color: form.service ? "#0c0c0c" : "#9ca3af" }}
+              style={{ color: form.service ? "#1a1a1a" : "#9ca3af" }}
             >
               <option value="" disabled>Select a service...</option>
               <option value="bulk">Bulk Waste Removal</option>
@@ -214,7 +214,7 @@ function Hero() {
             disabled={!canBook}
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-semibold text-white transition-all"
             style={{
-              background: canBook ? "linear-gradient(135deg,#1e1e1e,#404040)" : "#d1d5db",
+              background: canBook ? "linear-gradient(135deg,#2e2e2e,#585858)" : "#d1d5db",
               cursor: canBook ? "pointer" : "not-allowed",
             }}
           >
@@ -235,8 +235,8 @@ function Services() {
       <div className="mx-auto max-w-6xl px-6">
 
         <div className="mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>Our Services</p>
-          <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(2rem,3.8vw,3rem)", letterSpacing: "-0.03em", lineHeight: 1.06 }}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>Our Services</p>
+          <h2 className="mb-4 font-bold" style={{ color: "#1a1a1a", fontSize: "clamp(2rem,3.8vw,3rem)", letterSpacing: "-0.03em", lineHeight: 1.06 }}>
             Two services, one team.
           </h2>
           <p className="max-w-xl text-base leading-relaxed text-gray-500">
@@ -249,8 +249,8 @@ function Services() {
           {/* Left: title + description + who */}
           <div className="flex flex-col justify-between p-8 md:p-10" style={{ background: "#f8f8f8" }}>
             <div>
-              <p className="mb-5 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>01 — Bulk Waste &amp; Junk Removal</p>
-              <h3 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.6rem,2.4vw,2.2rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+              <p className="mb-5 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>01 — Bulk Waste &amp; Junk Removal</p>
+              <h3 className="mb-4 font-bold" style={{ color: "#1a1a1a", fontSize: "clamp(1.6rem,2.4vw,2.2rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
                 Everything hauled — furniture, appliances, full property cleanouts.
               </h3>
               <p className="mb-8 text-sm leading-relaxed text-gray-500">
@@ -258,7 +258,7 @@ function Services() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Residents", "Businesses", "Property Teams", "Contractors"].map((tag) => (
-                  <span key={tag} className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: "#f4f4f4", color: "#555555" }}>{tag}</span>
+                  <span key={tag} className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: "#f4f4f4", color: "#3a3a3a" }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -266,12 +266,12 @@ function Services() {
               <div className="flex gap-8">
                 {[{ value: "$100", label: "Starting price" }, { value: "24 hrs", label: "Fastest pickup" }].map((s) => (
                   <div key={s.label}>
-                    <p className="text-xl font-black" style={{ color: "#0c0c0c", letterSpacing: "-0.03em" }}>{s.value}</p>
+                    <p className="text-xl font-black" style={{ color: "#1a1a1a", letterSpacing: "-0.03em" }}>{s.value}</p>
                     <p className="text-xs text-gray-400">{s.label}</p>
                   </div>
                 ))}
               </div>
-              <Link href="/booking" className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}>
+              <Link href="/booking" className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
                 Get Instant Price <Arrow />
               </Link>
             </div>
@@ -286,9 +286,9 @@ function Services() {
               { label: "Full cleanouts", body: "Single items to entire units — one call, one crew, done." },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#555555" }} />
+                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#3a3a3a" }} />
                 <div>
-                  <p className="text-sm font-semibold" style={{ color: "#0c0c0c" }}>{item.label}</p>
+                  <p className="text-sm font-semibold" style={{ color: "#1a1a1a" }}>{item.label}</p>
                   <p className="text-sm text-gray-400">{item.body}</p>
                 </div>
               </div>
@@ -299,10 +299,10 @@ function Services() {
           <div className="lg:col-span-2 border-t bg-white px-8 py-7 md:px-10" style={{ borderColor: "#e5e5e5" }}>
             <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="mb-0.5 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#555555" }}>Transparent Pricing</p>
-                <p className="text-sm font-semibold" style={{ color: "#0c0c0c" }}>No hidden costs. Price confirmed before we touch anything.</p>
+                <p className="mb-0.5 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>Transparent Pricing</p>
+                <p className="text-sm font-semibold" style={{ color: "#1a1a1a" }}>No hidden costs. Price confirmed before we touch anything.</p>
               </div>
-              <Link href="/booking" className="text-xs font-semibold transition-colors hover:opacity-75" style={{ color: "#555555" }}>
+              <Link href="/booking" className="text-xs font-semibold transition-colors hover:opacity-75" style={{ color: "#3a3a3a" }}>
                 Get your exact price →
               </Link>
             </div>
@@ -317,7 +317,7 @@ function Services() {
               ].map((tier) => (
                 <div key={tier.label} className="rounded-xl p-4" style={{ background: "#f8f8f8", border: "1px solid #e5e5e5" }}>
                   <p className="mb-0.5 text-xs font-semibold text-gray-400">{tier.label}</p>
-                  <p className="mb-0.5 text-xl font-black" style={{ color: "#0c0c0c", letterSpacing: "-0.03em" }}>{tier.range}</p>
+                  <p className="mb-0.5 text-xl font-black" style={{ color: "#1a1a1a", letterSpacing: "-0.03em" }}>{tier.range}</p>
                   <p className="text-xs text-gray-400">{tier.note}</p>
                 </div>
               ))}
@@ -331,8 +331,8 @@ function Services() {
           {/* Left: title + description + who */}
           <div className="flex flex-col justify-between p-8 md:p-10" style={{ background: "#f5f5f5" }}>
             <div>
-              <p className="mb-5 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>02 — Trash Valet Service</p>
-              <h3 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.6rem,2.4vw,2.2rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+              <p className="mb-5 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>02 — Trash Valet Service</p>
+              <h3 className="mb-4 font-bold" style={{ color: "#1a1a1a", fontSize: "clamp(1.6rem,2.4vw,2.2rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
                 Doorstep trash collection for apartments, HOAs, and multifamily communities.
               </h3>
               <p className="mb-8 text-sm leading-relaxed text-gray-500">
@@ -340,7 +340,7 @@ function Services() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Residents", "Property Managers", "HOAs", "Apartment Communities"].map((tag) => (
-                  <span key={tag} className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: "#efefef", color: "#555555" }}>{tag}</span>
+                  <span key={tag} className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: "#efefef", color: "#3a3a3a" }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -348,12 +348,12 @@ function Services() {
               <div className="flex gap-8">
                 {[{ value: "$18", label: "Per door / month" }, { value: "3–5×", label: "Weekly pickups" }].map((s) => (
                   <div key={s.label}>
-                    <p className="text-xl font-black" style={{ color: "#0c0c0c", letterSpacing: "-0.03em" }}>{s.value}</p>
+                    <p className="text-xl font-black" style={{ color: "#1a1a1a", letterSpacing: "-0.03em" }}>{s.value}</p>
                     <p className="text-xs text-gray-400">{s.label}</p>
                   </div>
                 ))}
               </div>
-              <Link href="/trash-valet" className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}>
+              <Link href="/trash-valet" className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
                 Schedule Service <Arrow />
               </Link>
             </div>
@@ -368,9 +368,9 @@ function Services() {
               { label: "Marketable amenity", body: "Bundle into rent or fees — a real, visible perk that retains residents." },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#555555" }} />
+                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#3a3a3a" }} />
                 <div>
-                  <p className="text-sm font-semibold" style={{ color: "#0c0c0c" }}>{item.label}</p>
+                  <p className="text-sm font-semibold" style={{ color: "#1a1a1a" }}>{item.label}</p>
                   <p className="text-sm text-gray-400">{item.body}</p>
                 </div>
               </div>
@@ -385,13 +385,13 @@ function Services() {
 
 function ResponsibleDisposal() {
   return (
-    <section style={{ background: "#0c0c0c" }}>
+    <section style={{ background: "#1a1a1a" }}>
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
 
           {/* Left: label + headline + body */}
           <div>
-            <p className="mb-4 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#aaaaaa" }}>
+            <p className="mb-4 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#c8c8c8" }}>
               Responsible Disposal
             </p>
             <h2 className="mb-5 font-bold text-white" style={{ fontSize: "clamp(1.8rem,3vw,2.6rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}>
@@ -442,8 +442,8 @@ function WhyUs() {
     <section className="py-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-5">
         <div className="mb-12 max-w-2xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#555555" }}>Why JunkDrive</p>
-          <h2 className="mb-4 font-bold" style={{ color: "#0c0c0c", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#3a3a3a" }}>Why JunkDrive</p>
+          <h2 className="mb-4 font-bold" style={{ color: "#1a1a1a", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
             Simple, predictable, and built around your schedule.
           </h2>
           <p className="leading-relaxed text-gray-500">
@@ -459,7 +459,7 @@ function WhyUs() {
             { title: "Fast, reliable scheduling", body: "Same-day and next-day availability in most areas. We show up when we say we will." },
           ].map((item) => (
             <div key={item.title} className="rounded-[28px] border border-gray-100 bg-white p-6 card-shadow">
-              <p className="mb-2 text-sm font-bold" style={{ color: "#0c0c0c" }}>{item.title}</p>
+              <p className="mb-2 text-sm font-bold" style={{ color: "#1a1a1a" }}>{item.title}</p>
               <p className="text-xs leading-relaxed text-gray-500">{item.body}</p>
             </div>
           ))}
@@ -473,7 +473,7 @@ function ContactStrip() {
   return (
     <section className="pb-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-5">
-        <div className="flex flex-col items-start justify-between gap-4 rounded-[28px] border border-gray-100 bg-[#111111] p-7 sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-[28px] border border-gray-100 bg-[#1e1e1e] p-7 sm:flex-row sm:items-center">
           <div>
             <p className="mb-1 text-sm font-bold text-white">Prefer to book by phone?</p>
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.68)" }}>

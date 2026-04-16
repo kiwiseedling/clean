@@ -98,7 +98,7 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
       className="fixed inset-x-0 top-0 z-50 h-16 transition-all duration-300"
       style={
         scrolled
-          ? { background: "#111111", boxShadow: "0 2px 20px rgba(0,0,0,0.25)" }
+          ? { background: "#1e1e1e", boxShadow: "0 2px 20px rgba(0,0,0,0.25)" }
           : { background: "transparent", borderBottom: "none" }
       }
     >
@@ -121,7 +121,7 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
               >
                 {label}
                 {active && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full" style={{ background: "#aaaaaa" }} />
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full" style={{ background: "#c8c8c8" }} />
                 )}
               </Link>
             );
@@ -169,7 +169,7 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
       {open && (
         <div
           className="space-y-1 border-t px-5 py-4 md:hidden"
-          style={{ background: "#111111", borderColor: "rgba(255,255,255,0.1)" }}
+          style={{ background: "#1e1e1e", borderColor: "rgba(255,255,255,0.1)" }}
         >
           {links.map(([label, href]) => {
             const active = isActive(href);
@@ -182,7 +182,7 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
                 style={{ color: active ? "#ffffff" : "rgba(255,255,255,0.65)" }}
               >
                 {label}
-                {active && <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: "#aaaaaa" }} />}
+                {active && <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: "#c8c8c8" }} />}
               </Link>
             );
           })}

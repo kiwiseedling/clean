@@ -137,6 +137,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState(initialEmail);
   const [photosAttached, setPhotosAttached] = useState(false);
+  const [consented, setConsented] = useState(false);
   const [booked, setBooked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -187,36 +188,37 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
   const scheduleLabel = scheduleOptions.find((option) => option.id === schedule)?.label ?? "";
   const timeLabel = getTimeLabel(time);
   const stepIndex = steps.findIndex((step) => step.id === activeStep);
-  const canBook = Boolean(email.trim());
+  const canBook = Boolean(email.trim()) && consented;
   const canContinueDetails = activeStep !== "details" || email.trim().length > 0;
 
   const handleSubmit = async () => {
     setSubmitting(true);
     setSubmitError("");
     try {
-      const res = await fetch("/api/send", {
+      const res = await fetch("/api/create-card-setup-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          formType: "booking",
           name,
-          contact,
           email,
+          phone: contact,
           address,
+          service: "Bulk Waste Removal",
           load: loadLabel,
           schedule: scheduleLabel,
           time: timeLabel,
           property: propertyOptions.find((o) => o.id === property)?.label ?? property,
-          stairs,
+          stairs: String(stairs),
           distance,
-          livePrice,
+          price: String(livePrice),
         }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Failed");
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error(data.error || "Could not start secure card setup.");
       }
-      setBooked(true);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unknown error";
       setSubmitError(`Error: ${msg}`);
@@ -244,7 +246,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       borderRadius: "20px",
       padding: "28px",
     };
-    const accent = "#aaaaaa";
+    const accent = "#c8c8c8";
     const accentDim = "rgba(200,200,200,0.65)";
 
     if (booked) {
@@ -286,12 +288,12 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                   <rect x="134" y="22" width="58" height="54" rx="3" fill="rgba(70,70,70,0.18)" stroke="rgba(180,180,180,0.22)" strokeWidth="1" />
                   <rect x="202" y="36" width="34" height="38" rx="3" fill="rgba(70,70,70,0.13)" stroke="rgba(180,180,180,0.17)" strokeWidth="1" />
                 </svg>
-                <div className="animate-scan-line" style={{ position: "absolute", left: "12px", right: "12px", height: "2px", top: 0, background: "linear-gradient(90deg, transparent, #aaaaaa, transparent)", boxShadow: "0 0 10px rgba(180,180,180,0.7)" }} />
+                <div className="animate-scan-line" style={{ position: "absolute", left: "12px", right: "12px", height: "2px", top: 0, background: "linear-gradient(90deg, transparent, #c8c8c8, transparent)", boxShadow: "0 0 10px rgba(180,180,180,0.7)" }} />
               </div>
             </div>
             <button type="button" onClick={nextStep}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-bold text-white transition-all hover:opacity-90"
-              style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}>
+              style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
               Continue <Arrow className="h-4 w-4" />
             </button>
           </>
@@ -432,7 +434,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               return (
                 <button key={option.id} type="button" onClick={() => setLoad(option.id)}
                   className="rounded-2xl p-4 text-left transition-all" style={btn(active)}>
-                  <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: active ? "#aaaaaa" : "rgba(255,255,255,0.4)" }}>{option.label}</p>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: active ? "#c8c8c8" : "rgba(255,255,255,0.4)" }}>{option.label}</p>
                   <p className="mb-0.5 text-2xl font-black text-white" style={{ letterSpacing: "-0.03em" }}>{option.range}</p>
                   <p className="mb-1.5 text-xs" style={{ color: active ? "rgba(180,180,180,0.7)" : "rgba(255,255,255,0.3)" }}>typical range</p>
                   <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{option.example}</p>
@@ -550,9 +552,9 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={inputStyle} />
             </div>
             <label className="flex h-24 w-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed transition-all"
-              style={{ borderColor: photosAttached ? "#aaaaaa" : "rgba(255,255,255,0.12)", background: photosAttached ? "rgba(70,70,70,0.15)" : "rgba(255,255,255,0.03)" }}>
+              style={{ borderColor: photosAttached ? "#c8c8c8" : "rgba(255,255,255,0.12)", background: photosAttached ? "rgba(70,70,70,0.15)" : "rgba(255,255,255,0.03)" }}>
               <input type="file" accept="image/*" multiple className="hidden" onChange={() => setPhotosAttached(true)} />
-              <Camera className="h-5 w-5" style={{ color: photosAttached ? "#aaaaaa" : "rgba(255,255,255,0.3)" } as React.CSSProperties} />
+              <Camera className="h-5 w-5" style={{ color: photosAttached ? "#c8c8c8" : "rgba(255,255,255,0.3)" } as React.CSSProperties} />
               <p className="text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>{photosAttached ? "Photos attached" : "Optional: add photos"}</p>
             </label>
           </div>
@@ -565,19 +567,30 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <div className="space-y-2.5">
                 {[`${itemLabel} · ${loadLabel}`, address || "Address needed", `${scheduleLabel} · ${timeLabel}`, "Labor, hauling & disposal included"].map((text) => (
                   <div key={text} className="flex items-start gap-3">
-                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#aaaaaa" }} />
+                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#c8c8c8" }} />
                     <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>{text}</p>
                   </div>
                 ))}
               </div>
             </div>
+            <label className="flex cursor-pointer items-start gap-3 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${consented ? "rgba(200,200,200,0.35)" : "rgba(255,255,255,0.1)"}` }}>
+              <input
+                type="checkbox"
+                checked={consented}
+                onChange={(e) => setConsented(e.target.checked)}
+                className="mt-0.5 h-4 w-4 flex-shrink-0 accent-white"
+              />
+              <span className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
+                I authorize JunkDrive to securely store my card and charge the final agreed service amount after the job is completed. No charge is made until work is done.
+              </span>
+            </label>
             {submitError && (
               <p className="text-xs" style={{ color: "#f87171" }}>{submitError}</p>
             )}
             <button type="button" disabled={!canBook || submitting} onClick={handleSubmit}
               className="w-full rounded-2xl py-4 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-              style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}>
-              {submitting ? "Submitting…" : `Lock in ${formatMoney(livePrice)} — Book Pickup`}
+              style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
+              {submitting ? "Redirecting to payment…" : `Save Card to Confirm Booking — ${formatMoney(livePrice)}`}
             </button>
           </div>
         );
@@ -585,7 +598,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
   };
 
   return (
-    <div className="relative overflow-hidden pt-10 lg:pt-16" style={{ background: "#0a0a0a", minHeight: "100vh" }}>
+    <div className="relative overflow-hidden pt-10 lg:pt-16" style={{ background: "#181818", minHeight: "100vh" }}>
 
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -605,7 +618,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <Fragment key={step.id}>
                 <button type="button" onClick={() => setActiveStep(step.id)} className="flex items-center gap-2 whitespace-nowrap">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold transition-all"
-                    style={active ? { background: "#555555", color: "white" } : done ? { background: "rgba(70,70,70,0.3)", color: "#aaaaaa" } : { background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.28)" }}>
+                    style={active ? { background: "#3a3a3a", color: "white" } : done ? { background: "rgba(70,70,70,0.3)", color: "#c8c8c8" } : { background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.28)" }}>
                     {done ? "✓" : i + 1}
                   </span>
                   <span className="hidden text-xs font-medium sm:block transition-all"
@@ -633,9 +646,9 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <div>
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full"
                   style={{ background: "rgba(70,70,70,0.25)", border: "1px solid rgba(180,180,180,0.35)" }}>
-                  <Check className="h-5 w-5" style={{ color: "#aaaaaa" } as React.CSSProperties} />
+                  <Check className="h-5 w-5" style={{ color: "#c8c8c8" } as React.CSSProperties} />
                 </div>
-                <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: "#aaaaaa" }}>Confirmed</p>
+                <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: "#c8c8c8" }}>Confirmed</p>
                 <h2 className="mb-3 font-black text-white" style={{ fontSize: "clamp(2rem,3.5vw,3rem)", letterSpacing: "-0.04em" }}>
                   {formatMoney(livePrice)} locked in.
                 </h2>
@@ -645,7 +658,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 <div className="space-y-3">
                   {["SMS on the day — We're on the way.", "Crew verifies load before touching anything.", "Updated price shown if the load changed."].map((text) => (
                     <div key={text} className="flex items-center gap-3">
-                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#aaaaaa" }} />
+                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#c8c8c8" }} />
                       <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{text}</p>
                     </div>
                   ))}
@@ -676,14 +689,14 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                   {activeStep !== "confirm" && activeStep !== "amount" && (
                     <button type="button" onClick={nextStep} disabled={!canContinueDetails}
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-                      style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}>
+                      style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
                       Continue <Arrow className="h-4 w-4" />
                     </button>
                   )}
                   {activeStep === "amount" && (
                     <button type="button" onClick={nextStep}
                       className="lg:hidden inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg,#1e1e1e,#404040)" }}>
+                      style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
                       Continue <Arrow className="h-4 w-4" />
                     </button>
                   )}
