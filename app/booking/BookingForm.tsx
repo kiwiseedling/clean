@@ -596,12 +596,6 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       </div>
 
       {/* Audience badge */}
-      <div className="relative mx-auto max-w-6xl px-6 pt-14 pb-6">
-        <p className="mb-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-          waste solution for residents, businesses, property managers, and contractors
-        </p>
-      </div>
-
       {/* Step bar */}
       <div className="sticky top-16 z-40">
         <div className="mx-auto flex max-w-6xl items-center px-6 py-3.5">
