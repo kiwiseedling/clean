@@ -226,7 +226,10 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
   };
 
   const nextStep = () => {
-    if (stepIndex < steps.length - 1) setActiveStep(steps[stepIndex + 1].id);
+    if (stepIndex < steps.length - 1) {
+      setActiveStep(steps[stepIndex + 1].id);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const previousStep = () => {
