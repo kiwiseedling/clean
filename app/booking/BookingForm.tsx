@@ -598,7 +598,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       {/* Audience badge */}
       <div className="relative mx-auto max-w-6xl px-6 pt-14 pb-6">
         <p className="mb-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-          Bay Area bulk waste pickup — on-demand, upfront pricing, no hassle.
+          waste solution for residents, businesses, property managers, and contractors
         </p>
       </div>
 
