@@ -585,7 +585,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
   };
 
   return (
-    <div className="relative overflow-hidden" style={{ background: "#071912", minHeight: "100vh", paddingTop: "64px" }}>
+    <div className="relative overflow-hidden pt-10 lg:pt-16" style={{ background: "#071912", minHeight: "100vh" }}>
 
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -624,7 +624,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       </div>
       
       {/* Main grid */}
-      <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-8">
+      <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-14">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
 
           {/* Left: form */}
