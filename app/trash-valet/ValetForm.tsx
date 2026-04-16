@@ -461,6 +461,14 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
         {/* Sticky step indicator */}
         <div className="sticky top-16 z-40" style={{ background: "#071912", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="mx-auto max-w-6xl px-6 py-4">
+            <div className="mb-2 flex items-center justify-between lg:hidden">
+              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(106,191,142,0.55)" }}>
+                Step {submitted ? stepLabels.length : step + 1} of {stepLabels.length}
+              </p>
+              <p className="text-sm font-semibold text-white">
+                {submitted ? "Submitted" : stepLabels[step]}
+              </p>
+            </div>
             <div className="flex items-center">
               {stepLabels.map((label, i) => (
                 <Fragment key={label}>
@@ -560,8 +568,8 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
             )}
           </div>
 
-          {/* Right: glass panel */}
-          <div className="lg:sticky lg:top-32">
+          {/* Right: glass panel — desktop only */}
+          <div className="hidden lg:block lg:sticky lg:top-32">
             {renderRightPanel()}
           </div>
         </div>
