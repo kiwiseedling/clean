@@ -137,6 +137,8 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
   const [contact, setContact] = useState(initialPhone);
   const [photosAttached, setPhotosAttached] = useState(false);
   const [booked, setBooked] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const [addressSuggestions, setAddressSuggestions] = useState<string[]>([]);
   const [addressLoading, setAddressLoading] = useState(false);
@@ -185,6 +187,36 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
   const timeLabel = getTimeLabel(time);
   const stepIndex = steps.findIndex((step) => step.id === activeStep);
   const canBook = Boolean(address.trim() && name.trim() && contact.trim());
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "booking",
+          name,
+          contact,
+          address,
+          load: loadLabel,
+          schedule: scheduleLabel,
+          time: timeLabel,
+          property: propertyOptions.find((o) => o.id === property)?.label ?? property,
+          stairs,
+          distance,
+          livePrice,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setBooked(true);
+    } catch {
+      setSubmitError("Something went wrong. Please call us at (713) 282-2588.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const nextStep = () => {
     if (stepIndex < steps.length - 1) setActiveStep(steps[stepIndex + 1].id);
@@ -517,10 +549,13 @@ export default function BookingExperience({ initialName = "", initialPhone = "" 
                 ))}
               </div>
             </div>
-            <button type="button" disabled={!canBook} onClick={() => setBooked(true)}
+            {submitError && (
+              <p className="text-xs" style={{ color: "#f87171" }}>{submitError}</p>
+            )}
+            <button type="button" disabled={!canBook || submitting} onClick={handleSubmit}
               className="w-full rounded-2xl py-4 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
               style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
-              Lock in {formatMoney(livePrice)} — Book Pickup
+              {submitting ? "Submitting…" : `Lock in ${formatMoney(livePrice)} — Book Pickup`}
             </button>
           </div>
         );

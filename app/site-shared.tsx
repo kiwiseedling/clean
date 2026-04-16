@@ -193,95 +193,138 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
 
 export function Footer() {
   return (
-    <footer style={{ background: "#080f0a" }}>
-      <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="mb-10 grid gap-12 md:grid-cols-[240px_1fr]">
+    <footer className="relative overflow-hidden" style={{ background: "#0a0b0c" }}>
+
+      {/* Topographic contour pattern */}
+      <div className="pointer-events-none absolute inset-0" style={{ opacity: 0.055 }}>
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="topo-footer" x="0" y="0" width="700" height="420" patternUnits="userSpaceOnUse">
+              <path d="M-50 320 Q80 260 200 310 Q320 360 450 290 Q580 220 750 270" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 280 Q100 210 240 265 Q370 315 500 240 Q630 165 780 220" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 240 Q120 160 270 220 Q410 275 540 190 Q670 105 820 165" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 200 Q140 110 300 175 Q450 235 580 140 Q710 45 870 110" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 360 Q60 310 180 355 Q300 400 430 345 Q560 285 730 330" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 400 Q40 365 160 400 Q280 435 410 390 Q540 340 710 385" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 160 Q160 60 330 130 Q490 195 620 90 Q750 -15 920 55" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M-50 120 Q180 10 360 85 Q530 155 660 40 Q790 -75 970 0" stroke="white" strokeWidth="1" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#topo-footer)" />
+        </svg>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 pt-14 pb-6">
+
+        {/* 4-column grid */}
+        <div className="mb-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+          {/* Col 1: Brand */}
           <div>
-            <div className="mb-4">
-              <Image src={logoWhiteImage} alt="BinButler logo" className="block h-8 w-auto" style={{ marginLeft: "-4px" }} />
-            </div>
-            <p className="mb-5 max-w-[220px] text-sm leading-relaxed" style={{ color: "rgba(163,217,184,0.75)" }}>
+            <h3 className="mb-3 text-base font-bold text-white">BinButler</h3>
+            <p className="mb-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
               Bulk waste pickup and apartment trash valet for Bay Area property teams, contractors, and businesses.
             </p>
-            <div className="space-y-2">
-              <a href="tel:+117132822588" className="flex items-center gap-2 text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.72)" }}>
-                <Phone />
-                (713) 282 2588
-              </a>
-              <a href="mailto:hello@binbutler.com" className="flex items-center gap-2 text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.72)" }}>
-                <Mail />
-                hello@binbutler.com
-              </a>
-            </div>
+            <p className="text-sm" style={{ color: "rgba(255,255,255,0.38)" }}>
+              Serving the Bay Area, California.
+            </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3">
-            <div>
-              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(163,217,184,0.65)" }}>
-                Services
-              </h4>
-              <ul className="space-y-2.5">
-                {[
-                  ["Bulk Trash Pickup", "/"],
-                  ["Trash Valet", "/trash-valet"],
-                  ["Bulk Pricing", "/booking"],
-                  ["Request Pickup", "/booking"],
-                ].map(([label, href]) => (
-                  <li key={label}>
-                    <Link href={href} className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.72)" }}>
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Col 2: Site Menu */}
+          <div>
+            <h4 className="mb-4 text-sm font-bold text-white">Site Menu</h4>
+            <ul className="space-y-2.5">
+              {[
+                ["Home", "/"],
+                ["Bulk Trash", "/"],
+                ["Trash Valet", "/trash-valet"],
+                ["Book Pickup", "/booking"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href} className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.52)" }}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div>
-              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(163,217,184,0.65)" }}>
-                Customers
-              </h4>
-              <ul className="space-y-2.5">
-                {["Property Managers", "Contractors", "Retail & Offices", "Apartment Communities"].map((label) => (
-                  <li key={label}>
-                    <span className="text-sm" style={{ color: "rgba(255,255,255,0.72)" }}>
-                      {label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Col 3: Information */}
+          <div>
+            <h4 className="mb-4 text-sm font-bold text-white">Information</h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a href="mailto:contact@baybinbutlers.com" className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.52)" }}>
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(163,217,184,0.65)" }}>
-                Company
-              </h4>
-              <ul className="space-y-2.5">
-                {["hello@binbutler.com", "(713) 282 2588", "Bay Area, CA", "Mon-Sat 8 AM - 6 PM"].map((label) => (
-                  <li key={label}>
-                    <span className="text-sm" style={{ color: "rgba(255,255,255,0.72)" }}>
-                      {label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          {/* Col 4: Contact */}
+          <div>
+            <h4 className="mb-4 text-sm font-bold text-white">Contact us</h4>
+            <div className="space-y-2">
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.52)" }}>Phone: (713) 282-2588</p>
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.52)" }}>
+                Contact us at:{" "}
+                <a href="mailto:contact@baybinbutlers.com" className="transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.52)" }}>
+                  contact@baybinbutlers.com
+                </a>
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 border-t pt-7 sm:flex-row" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
-            © 2026 BinButler. Licensed &amp; insured. Bay Area, CA.
+        {/* Newsletter */}
+        <div className="mb-10">
+          <h4 className="mb-3 text-base font-bold text-white">Join our newsletter</h4>
+          <div className="flex gap-2">
+            <input
+              type="email"
+              placeholder="Email address"
+              className="rounded px-4 py-2.5 text-sm"
+              style={{
+                background: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                color: "white",
+                outline: "none",
+                width: "260px",
+              }}
+            />
+            <button
+              className="rounded px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+              style={{ background: "#22c55e" }}
+            >
+              JOIN
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
+            © 2026 – Administered by BinButler. Bay Area, CA.
           </p>
-          <div className="flex items-center gap-4 text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>
-            <Link href="/" className="transition-colors hover:text-white">
-              Bulk Trash
-            </Link>
-            <Link href="/trash-valet" className="transition-colors hover:text-white">
-              Trash Valet
-            </Link>
+          <div className="flex items-center gap-1 text-xs" style={{ color: "rgba(255,255,255,0.42)" }}>
+            <a href="#" className="transition-colors hover:text-white">Terms &amp; Conditions</a>
+            <span className="mx-2">|</span>
+            <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
           </div>
         </div>
       </div>
+
+      {/* Scroll to top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg transition-opacity hover:opacity-90"
+        style={{ background: "#22c55e" }}
+        aria-label="Scroll to top"
+      >
+        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="18 15 12 9 6 15" />
+        </svg>
+      </button>
     </footer>
   );
 }

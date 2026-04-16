@@ -15,6 +15,8 @@ export default function ValetFormSection({ initialName = "", initialPhone = "" }
     email: "", notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [addressSuggestions, setAddressSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,6 +73,40 @@ export default function ValetFormSection({ initialName = "", initialPhone = "" }
 
   const serviceOptions = isManager ? managerServices : residentServices;
   const inputCls = "w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-gray-200 placeholder:text-gray-500 outline-none transition-colors focus:border-green-600";
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "valet",
+          userType,
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          propertyName: form.propertyName,
+          address: form.address,
+          city: form.city,
+          zip: form.zip,
+          propertyType: form.propertyType,
+          units: form.units,
+          frequency: form.frequency,
+          timeline: form.timeline,
+          notes: form.notes,
+          services,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please call us at (713) 282-2588.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const renderStep = () => {
     if (submitted) {
@@ -505,13 +541,19 @@ export default function ValetFormSection({ initialName = "", initialPhone = "" }
                     >
                       Back
                     </button>
-                    <button
-                      onClick={() => setSubmitted(true)}
-                      className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}
-                    >
-                      {isManager ? "Request Proposal" : "Submit Request"} <Arrow />
-                    </button>
+                    <div className="flex flex-1 flex-col gap-2">
+                      {submitError && (
+                        <p className="text-xs" style={{ color: "#f87171" }}>{submitError}</p>
+                      )}
+                      <button
+                        onClick={handleSubmit}
+                        disabled={submitting}
+                        className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+                        style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}
+                      >
+                        {submitting ? "Submitting…" : isManager ? "Request Proposal" : "Submit Request"} {!submitting && <Arrow />}
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
