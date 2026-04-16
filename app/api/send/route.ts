@@ -1,14 +1,14 @@
 import { Resend } from "resend";
 
 export async function POST(req: Request) {
+    export async function POST(req: Request) {
+  console.log("RESEND KEY EXISTS:", !!process.env.RESEND_API_KEY);
+
   try {
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
-      return Response.json(
-        { error: "Missing RESEND_API_KEY" },
-        { status: 500 }
-      );
+      return Response.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
     }
 
     const adminEmail = process.env.ADMIN_EMAIL;
