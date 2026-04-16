@@ -287,7 +287,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               </div>
             </div>
             <button type="button" onClick={nextStep}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-bold text-white transition-all hover:opacity-90"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-bold text-white transition-all hover:opacity-90"
               style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
               Continue <Arrow className="h-4 w-4" />
             </button>
@@ -378,7 +378,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
 
       case "confirm":
         return (
-          <div style={glass}>
+          <div style={{ ...glass, marginTop: "48px" }}>
             <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Final Price</p>
             <p className="mb-0.5 text-5xl font-black text-white" style={{ letterSpacing: "-0.04em" }}>{formatMoney(livePrice)}</p>
             <p className="mb-5 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Labor, hauling &amp; disposal included</p>
