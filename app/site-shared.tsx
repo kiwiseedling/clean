@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import logoWhiteImage from "../images/logowhite.png";
+import logoWhiteImage from "../images/nav.png";
 
 type IconProps = { className?: string; style?: React.CSSProperties };
 

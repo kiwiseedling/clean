@@ -36,7 +36,7 @@ function HowItWorks() {
             Book to done<br />in three steps.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            No truck to rent, no straining your back, no hauling to the dump. You book, we show up, it&apos;s gone.
+            No truck to rent, no straining your back, no hauling to the dump. Our bulk waste removal service handles everything — you book, we show up, it&apos;s gone.
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
@@ -78,7 +78,7 @@ function WhatWeHaul() {
             Most things in your home<br />or property — we take it.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            From a single couch to a full garage cleanout. If you&apos;re not sure, call us — we&apos;ll tell you on the spot.
+            From a single couch to a full garage cleanout or commercial property cleanout. Furniture, appliances, construction debris, office furniture, and mixed junk — if you&apos;re not sure, call us and we&apos;ll tell you on the spot.
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -133,7 +133,7 @@ function BulkPricing() {
             Upfront ranges.<br />Price locked before we touch anything.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            Typical Bay Area ranges based on load size. Your final price accounts for item type, property, stairs, and carry distance — all calculated instantly when you book.
+            Typical Bay Area junk hauling and bulk pickup ranges based on load size. Your final price accounts for item type, property, stairs, and carry distance — all calculated instantly when you book. No hidden fees for residential or commercial jobs.
           </p>
         </div>
         <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -195,7 +195,7 @@ function BulkFAQ() {
     },
     {
       q: "Do you service all Bay Area cities?",
-      a: "We cover San Francisco, Oakland, San Jose, Fremont, Palo Alto, Berkeley, and surrounding areas. Enter your address in the booking form to confirm coverage for your location.",
+      a: "We cover San Francisco, Oakland, San Jose, Fremont, Palo Alto, Berkeley, and surrounding Bay Area cities. Residential, commercial, and contractor jobs welcome — enter your address in the booking form to confirm coverage for your location.",
     },
   ];
   return (

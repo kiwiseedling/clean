@@ -113,7 +113,7 @@ function ValetHeroIntro() {
         </h1>
 
         <p className="max-w-lg text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.58)" }}>
-          Doorstep pickup, property manager visibility, and SB-1383 support for multifamily communities.
+          Doorstep trash pickup for apartment complexes, HOAs, and multifamily communities — with property manager visibility and SB-1383 compliance support.
         </p>
       </div>
     </section>
@@ -158,7 +158,7 @@ function DoorstepSection() {
             doorstep collection feel premium.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            Residents stage tied bags during the scheduled window, BinButler teams collect door-to-door, and the community gets cleaner corridors with less friction around everyday trash disposal.
+            Our residential valet waste service collects door-to-door from every occupied apartment — residents stage tied bags during the scheduled window, BinButler handles the rest, and the community gets cleaner corridors with less friction around everyday trash disposal.
           </p>
         </div>
 
@@ -221,7 +221,7 @@ function ConnectSection() {
               Request a proposal for your property.
             </h2>
             <p className="mb-10 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-              Tell us about your community and we'll build a service plan that fits your operations, budget, and compliance needs.
+              Tell us about your apartment complex, HOA, or multifamily property and we&apos;ll build a trash valet service plan that fits your operations, budget, and compliance needs.
             </p>
             <div className="space-y-4">
               {bullets.map((item) => (
@@ -397,7 +397,7 @@ function FAQ() {
   const items = [
     {
       q: "Is trash valet only for residents?",
-      a: "No. We position the program for residents, onsite teams, and ownership goals at the same time, so the page now speaks to convenience, operational visibility, and compliance support together.",
+      a: "No. Our trash valet service is designed for apartment communities, HOAs, and multifamily properties. We position the program for residents, onsite teams, landlords, and ownership goals at the same time — covering convenience, operational visibility, and compliance support together.",
     },
     {
       q: "What does Connect mean on this page?",

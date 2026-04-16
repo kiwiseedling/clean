@@ -595,7 +595,6 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
           style={{ background: "radial-gradient(circle, rgba(106,191,142,0.2) 0%, transparent 70%)", filter: "blur(60px)" }} />
       </div>
 
-      {/* Audience badge */}
       {/* Step bar */}
       <div className="sticky top-16 z-40">
         <div className="mx-auto flex max-w-6xl items-center px-6 py-3.5">
@@ -622,6 +621,13 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             );
           })}
         </div>
+      </div>
+
+      {/* Description */}
+      <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-0">
+        <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+          Bay Area bulk waste removal and junk hauling — on-demand service for residents, businesses, property teams, and contractors. Upfront pricing, no hassle.
+        </p>
       </div>
 
       {/* Main grid */}

@@ -167,7 +167,7 @@ function Hero() {
           </h1>
 
           <p className="mb-2 max-w-md text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.58)" }}>
-            Junk pickup and doorstep trash collection for residents, businesses, and property teams in the bay area
+            On-demand junk removal and doorstep trash collection for residents, businesses, property teams, and contractors across the Bay Area
           </p>
           <p className="mt-3 mb-10 max-w-md text-sm italic" style={{ color: "rgba(255,255,255,0.38)" }}>
             Upfront Pricing and No Hidden Costs
@@ -251,10 +251,10 @@ function Services() {
             <div>
               <p className="mb-5 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>01 — Bulk Waste &amp; Junk Removal</p>
               <h3 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.6rem,2.4vw,2.2rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-                Everything hauled — furniture, appliances, full cleanouts.
+                Everything hauled — furniture, appliances, full property cleanouts.
               </h3>
               <p className="mb-8 text-sm leading-relaxed text-gray-500">
-                Book online, get an upfront price, and we lift, load, and haul. No quotes, no callbacks, no surprises at the door.
+                Bulk trash pickup, junk hauling, and move-out cleanouts for homes, offices, and commercial properties. Book online, get an upfront price, and we lift, load, and haul — no callbacks, no surprises at the door.
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Residents", "Businesses", "Property Teams", "Contractors"].map((tag) => (
@@ -333,10 +333,10 @@ function Services() {
             <div>
               <p className="mb-5 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>02 — Trash Valet Service</p>
               <h3 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.6rem,2.4vw,2.2rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-                Doorstep trash collection for apartment communities.
+                Doorstep trash collection for apartments, HOAs, and multifamily communities.
               </h3>
               <p className="mb-8 text-sm leading-relaxed text-gray-500">
-                We pick up trash directly from residents' doors on a set schedule — no dumpster trips, no overflow, no complaints.
+                Our apartment trash valet service picks up directly from residents' doors on a set schedule — no dumpster trips, no overflow, no complaints. A marketable amenity for property managers and landlords.
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Residents", "Property Managers", "HOAs", "Apartment Communities"].map((tag) => (
@@ -455,7 +455,7 @@ function WhyUs() {
           {[
             { title: "Upfront, transparent pricing", body: "See your exact price before booking. No quotes, no callbacks, no surprises at the door." },
             { title: "Professional, no-hassle service", body: "Trained crews that are quick, careful, and respectful of your space — every time." },
-            { title: "All solutions in one place", body: "Bulk junk removal and trash valet — residential, commercial, and property-wide support." },
+            { title: "All solutions in one place", body: "Bulk junk removal, commercial waste removal, and trash valet — one team for residential, business, and property-wide needs." },
             { title: "Fast, reliable scheduling", body: "Same-day and next-day availability in most areas. We show up when we say we will." },
           ].map((item) => (
             <div key={item.title} className="rounded-[28px] border border-gray-100 bg-white p-6 card-shadow">
@@ -480,7 +480,7 @@ function ContactStrip() {
               Our team can walk through the same step-by-step booking flow with you.
             </p>
           </div>
-          <a href="tel:+117132822588" className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-gray-900">
+          <a href="tel:+17132822588" className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-gray-900">
             <Phone />
             (713) 282 2588
           </a>
