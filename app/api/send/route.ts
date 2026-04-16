@@ -243,6 +243,18 @@ export async function POST(req: Request) {
       return Response.json({ success: true });
     }
 
+    // ── Newsletter signup ─────────────────────────────────────────────────────
+    if (formType === "newsletter") {
+      const { email } = body;
+      await resend.emails.send({
+        from: fromEmail,
+        to: adminEmail,
+        subject: `New newsletter signup: ${email}`,
+        html: `<p>New newsletter subscriber: <strong>${email}</strong></p>`,
+      });
+      return Response.json({ success: true });
+    }
+
     return Response.json({ error: "Unknown formType" }, { status: 400 });
   } catch (error) {
     console.error(error);

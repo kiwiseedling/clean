@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Arrow, Check, Footer, Navbar } from "../site-shared";
+import { Check, Footer, Navbar } from "../site-shared";
+import { ScrollTopCTA } from "./ScrollTopCTA";
 import BookingExperience from "./BookingForm";
 
 type PageProps = {
@@ -222,9 +222,7 @@ function BulkFAQ() {
             <a href="tel:+17132822588" className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:opacity-90" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.12)" }}>
               (713) 282 2588
             </a>
-            <Link href="/booking" className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
-              Book a Pickup <Arrow className="h-3.5 w-3.5" />
-            </Link>
+            <ScrollTopCTA />
           </div>
         </div>
       </div>

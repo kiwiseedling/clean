@@ -130,7 +130,7 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="tel:+117132822588"
+            href="tel:+17132822588"
             className="flex items-center gap-1.5 text-sm font-medium transition-colors"
             style={{ color: phoneColor }}
           >
@@ -139,6 +139,12 @@ export function Navbar({ primaryHref, primaryLabel, mode = "home" }: NavbarProps
           </a>
           <Link
             href={primaryHref}
+            onClick={(e) => {
+              if (pathname === primaryHref) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
             className="rounded-lg px-4 py-2 text-sm font-semibold text-white transition-all hover:opacity-90"
             style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.2)" }}
           >
@@ -254,7 +260,13 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-bold text-white">Information</h4>
             <ul className="space-y-2.5">
               <li>
-                <a href="mailto:contact@baybinbutlers.com" className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.52)" }}>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&to=contact@baybinbutlers.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm transition-colors hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.52)" }}
+                >
                   Contact Us
                 </a>
               </li>
@@ -276,30 +288,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Newsletter */}
-        <div className="mb-10">
-          <h4 className="mb-3 text-base font-bold text-white">Join our newsletter</h4>
-          <div className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Email address"
-              className="rounded px-4 py-2.5 text-sm"
-              style={{
-                background: "rgba(255,255,255,0.07)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                color: "white",
-                outline: "none",
-                width: "260px",
-              }}
-            />
-            <button
-              className="rounded px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
-              style={{ background: "#22c55e" }}
-            >
-              JOIN
-            </button>
-          </div>
-        </div>
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row" style={{ borderColor: "rgba(255,255,255,0.08)" }}>

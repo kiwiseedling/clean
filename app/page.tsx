@@ -163,14 +163,14 @@ function Hero() {
 
           <h1 className="mb-5 font-black text-white"
             style={{ fontSize: "clamp(2.8rem,5.8vw,4.8rem)", lineHeight: 1.04, letterSpacing: "-0.04em" }}>
-            Bulk Waste &amp;<br />Trash Valet,<br />Done Right
+            Bulk Waste &amp;<br />Trash Valet<br />Done Right
           </h1>
 
           <p className="mb-2 max-w-md text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.58)" }}>
             Junk pickup and doorstep trash collection for residents, businesses, and property teams in the bay area
           </p>
           <p className="mt-3 mb-10 max-w-md text-sm italic" style={{ color: "rgba(255,255,255,0.38)" }}>
-            Upfront pricing and No Hidden Costs
+            Upfront Pricing and No Hidden Costs
           </p>
 
         </div>
