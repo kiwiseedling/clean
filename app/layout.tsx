@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BinButler — Commercial Waste Pickup. Fast, Simple, Affordable.",
+  title: "BinBuddy — Commercial Waste Pickup. Fast, Simple, Affordable.",
   description:
     "Bulk waste collection, recycling pickup, and tenant cleanouts for property managers, contractors, and businesses. Free quote in 30 minutes. Same-day & next-day availability in the Bay Area.",
   keywords: ["commercial waste removal", "bulk waste pickup", "tenant cleanout", "recycling pickup", "construction debris removal", "property manager waste", "Bay Area waste services"],

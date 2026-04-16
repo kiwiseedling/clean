@@ -346,7 +346,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             </div>
             <div className="rounded-xl px-4 py-3" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
               <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.25)" }}>Day-of SMS</p>
-              <p className="text-sm italic" style={{ color: "rgba(255,255,255,0.6)" }}>&ldquo;BinButler: Your crew is 20 min away. See you soon!&rdquo;</p>
+              <p className="text-sm italic" style={{ color: "rgba(255,255,255,0.6)" }}>&ldquo;BinBuddy: Your crew is 20 min away. See you soon!&rdquo;</p>
             </div>
           </div>
         );
@@ -359,13 +359,13 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             <div className="mb-5 mt-6 space-y-2" style={{ opacity: 0.5 }}>
               <div className="flex justify-start">
                 <div className="rounded-2xl rounded-tl-sm px-4 py-3" style={{ background: "rgba(255,255,255,0.07)", maxWidth: "85%" }}>
-                  <p className="mb-1 text-[10px] font-bold" style={{ color: accent }}>BinButler</p>
+                  <p className="mb-1 text-[10px] font-bold" style={{ color: accent }}>BinBuddy</p>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>Booking confirmed for {scheduleLabel.toLowerCase() || "next day"} · {timeLabel || "8–12"} window</p>
                 </div>
               </div>
               <div className="flex justify-start">
                 <div className="rounded-2xl rounded-tl-sm px-4 py-3" style={{ background: "rgba(255,255,255,0.07)", maxWidth: "85%" }}>
-                  <p className="mb-1 text-[10px] font-bold" style={{ color: accent }}>BinButler</p>
+                  <p className="mb-1 text-[10px] font-bold" style={{ color: accent }}>BinBuddy</p>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>Total: {formatMoney(livePrice)} · Price confirmed before we start.</p>
                 </div>
               </div>

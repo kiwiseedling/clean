@@ -442,12 +442,12 @@ function WhyUs() {
     <section className="py-24" style={{ background: "#fafafa" }}>
       <div className="mx-auto max-w-5xl px-5">
         <div className="mb-12 max-w-2xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>Why BinButler</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: "#22764a" }}>Why BinBuddy</p>
           <h2 className="mb-4 font-bold" style={{ color: "#0a1f14", fontSize: "clamp(1.9rem,3.2vw,2.6rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
             Simple, predictable, and built around your schedule.
           </h2>
           <p className="leading-relaxed text-gray-500">
-            We built BinButler around the things people actually care about: knowing what they&apos;ll pay, having someone show up on time, and not dealing with a process that wastes their day.
+            We built BinBuddy around the things people actually care about: knowing what they&apos;ll pay, having someone show up on time, and not dealing with a process that wastes their day.
           </p>
         </div>
 
