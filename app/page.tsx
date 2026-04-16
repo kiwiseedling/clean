@@ -183,6 +183,7 @@ function Hero() {
           <div className="space-y-3">
             <input
               type="text"
+              autoComplete="name"
               placeholder="Your name"
               value={form.name}
               onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
@@ -190,6 +191,7 @@ function Hero() {
             />
             <input
               type="email"
+              autoComplete="email"
               placeholder="Email address"
               value={form.email}
               onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}

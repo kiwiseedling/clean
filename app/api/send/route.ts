@@ -1,14 +1,24 @@
 import { Resend } from "resend";
 
 export async function POST(req: Request) {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) {
     return Response.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
   }
 
   const resend = new Resend(apiKey);
-  const from = process.env.FROM_EMAIL!;
-  const adminEmail = process.env.ADMIN_EMAIL ?? "contact@baybinbutlers.com";
+  const from = (process.env.FROM_EMAIL ?? "").trim();
+  const adminEmail = (process.env.ADMIN_EMAIL ?? "contact@baybinbutlers.com").trim();
+
+  if (!from) {
+    return Response.json({ error: "Missing FROM_EMAIL" }, { status: 500 });
+  }
+
+  async function send(payload: Parameters<typeof resend.emails.send>[0]) {
+    const { data, error } = await resend.emails.send(payload);
+    if (error) throw new Error(JSON.stringify(error));
+    return data;
+  }
 
   try {
     const body = await req.json();
@@ -18,8 +28,7 @@ export async function POST(req: Request) {
     if (formType === "booking") {
       const { name, contact, email, address, load, schedule, time, property, stairs, livePrice } = body;
 
-      // Admin notification
-      await resend.emails.send({
+      await send({
         from,
         to: adminEmail,
         subject: `New Bulk Pickup Request from ${name || email}`,
@@ -39,9 +48,8 @@ export async function POST(req: Request) {
         `,
       });
 
-      // User confirmation
       if (email) {
-        await resend.emails.send({
+        await send({
           from,
           to: email,
           subject: "We received your pickup request — BinButler",
@@ -64,8 +72,7 @@ export async function POST(req: Request) {
     if (formType === "valet") {
       const { name, phone, email, propertyName, address, city, zip, propertyType, units, frequency, timeline, services, notes, userType } = body;
 
-      // Admin notification
-      await resend.emails.send({
+      await send({
         from,
         to: adminEmail,
         subject: `New Trash Valet Request from ${name}`,
@@ -88,9 +95,8 @@ export async function POST(req: Request) {
         `,
       });
 
-      // User confirmation (only if email provided)
       if (email) {
-        await resend.emails.send({
+        await send({
           from,
           to: email,
           subject: "We received your trash valet request — BinButler",
@@ -110,7 +116,8 @@ export async function POST(req: Request) {
 
     return Response.json({ error: "Unknown formType" }, { status: 400 });
   } catch (error) {
-    console.error(error);
-    return Response.json({ error: "Failed to send email" }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("[send route]", message);
+    return Response.json({ error: message }, { status: 500 });
   }
 }

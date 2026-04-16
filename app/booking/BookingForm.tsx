@@ -212,10 +212,14 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
           livePrice,
         }),
       });
-      if (!res.ok) throw new Error("Failed");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed");
+      }
       setBooked(true);
-    } catch {
-      setSubmitError("Something went wrong. Please call us at (713) 282-2588.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Unknown error";
+      setSubmitError(`Error: ${msg}`);
     } finally {
       setSubmitting(false);
     }
@@ -532,14 +536,14 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
         return (
           <div className="space-y-3">
             <div>
-              <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address *"
+              <input type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address *"
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={{ ...inputStyle, borderColor: email.trim() ? "rgba(106,191,142,0.4)" : "rgba(255,255,255,0.1)" }} />
               <p className="mt-1.5 text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>We'll send your confirmation here</p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name (optional)"
+              <input type="text" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name (optional)"
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={inputStyle} />
-              <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Phone (optional)"
+              <input type="tel" autoComplete="tel" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Phone (optional)"
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={inputStyle} />
             </div>
             <label className="flex h-24 w-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed transition-all"
@@ -684,7 +688,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
 
           {/* Right: price + step-specific panel */}
           <div className="lg:sticky lg:top-28 space-y-5">
-            {!booked && (
+            {!booked && activeStep !== "confirm" && (
               <div>
                 <p className="mb-0.5 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(106,191,142,0.55)" }}>Estimated Total</p>
                 <div className="flex items-baseline gap-3">
