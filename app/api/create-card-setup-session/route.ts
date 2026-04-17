@@ -43,7 +43,7 @@ export async function POST(req: Request) {
 
     if (dbError || !booking) {
       console.error("[create-session] supabase insert failed:", dbError);
-      return Response.json({ error: "Failed to save booking" }, { status: 500 });
+      return Response.json({ error: "Failed to save booking", detail: dbError?.message ?? "no data returned" }, { status: 500 });
     }
 
     // ── 3. Create Stripe Checkout setup session with booking ID ────────────
@@ -68,7 +68,8 @@ export async function POST(req: Request) {
 
     return Response.json({ url: session.url });
   } catch (error) {
-    console.error("[create-session] error:", error);
-    return Response.json({ error: "Failed to create setup session" }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("[create-session] error:", message);
+    return Response.json({ error: message }, { status: 500 });
   }
 }

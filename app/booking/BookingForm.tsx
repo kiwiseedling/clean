@@ -217,7 +217,8 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       if (data.url) {
         window.location.href = data.url;
       } else {
-        throw new Error(data.error || "Could not start secure card setup.");
+        const detail = data.detail ? ` (${data.detail})` : "";
+        throw new Error((data.error || "Could not start secure card setup.") + detail);
       }
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unknown error";
