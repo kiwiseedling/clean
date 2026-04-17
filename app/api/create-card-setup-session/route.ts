@@ -1,5 +1,5 @@
 import { stripe } from "@/lib/stripe";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 
 export async function POST(req: Request) {
   try {
@@ -10,24 +10,25 @@ export async function POST(req: Request) {
       return Response.json({ error: "Missing email" }, { status: 400 });
     }
 
+    // ── 1. Create Stripe customer ───────────────────────────────────────────
     const customer = await stripe.customers.create({
       name,
       email,
       phone,
-      metadata: {
-        address: address || "",
-        service: service || "",
-      },
+      metadata: { address: address || "" },
     });
 
-    await supabase.from("orders").insert([
-      {
+    // ── 2. Insert booking row and get back the ID ───────────────────────────
+    const { data: booking, error: dbError } = await supabaseAdmin
+      .from("bookings")
+      .insert([{
         name,
         email,
         phone,
         address,
-        service: "bulk",
+        service: service || "bulk_waste",
         status: "pending",
+        payment_status: "unpaid",
         quoted_price: price ? parseFloat(price) : null,
         load,
         schedule,
@@ -36,9 +37,16 @@ export async function POST(req: Request) {
         stairs: stairs === "true",
         distance,
         stripe_customer_id: customer.id,
-      },
-    ]);
+      }])
+      .select()
+      .single();
 
+    if (dbError || !booking) {
+      console.error("[create-session] supabase insert failed:", dbError);
+      return Response.json({ error: "Failed to save booking" }, { status: 500 });
+    }
+
+    // ── 3. Create Stripe Checkout setup session with booking ID ────────────
     const session = await stripe.checkout.sessions.create({
       mode: "setup",
       customer: customer.id,
@@ -46,8 +54,8 @@ export async function POST(req: Request) {
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/booking-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/booking`,
       metadata: {
+        booking_id: String(booking.id),
         customer_email: email,
-        service: service || "",
         load: load || "",
         schedule: schedule || "",
         time: time || "",
@@ -58,14 +66,9 @@ export async function POST(req: Request) {
       },
     });
 
-    return Response.json({
-      url: session.url,
-    });
+    return Response.json({ url: session.url });
   } catch (error) {
-    console.error(error);
-    return Response.json(
-      { error: "Failed to create setup session" },
-      { status: 500 }
-    );
+    console.error("[create-session] error:", error);
+    return Response.json({ error: "Failed to create setup session" }, { status: 500 });
   }
 }

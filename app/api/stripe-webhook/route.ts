@@ -1,5 +1,5 @@
 import { stripe } from "@/lib/stripe";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 import Stripe from "stripe";
 import { Resend } from "resend";
 
@@ -49,26 +49,27 @@ export async function POST(req: Request) {
           ? setupIntent.payment_method
           : setupIntent.payment_method?.id;
 
+      const bookingId = meta.booking_id;
+
       if (!customerId || !paymentMethodId || !customerEmail) {
         console.error("[webhook] missing required fields", { customerId, paymentMethodId, customerEmail });
         return new Response("ok");
       }
 
-      // ── 1. Update Supabase row ──────────────────────────────────────────────
+      // ── 1. Update Supabase bookings row by ID ──────────────────────────────
       const { error: dbError } = await supabase
-        .from("orders")
+        .from("bookings")
         .update({
           stripe_customer_id: customerId,
           stripe_payment_method_id: paymentMethodId,
-          status: "card_saved",
+          payment_status: "card_saved",
         })
-        .eq("email", customerEmail)
-        .eq("status", "pending");
+        .eq("id", bookingId);
 
       if (dbError) {
         console.error("[webhook] supabase update failed:", dbError);
       } else {
-        console.log("[webhook] supabase order updated for", customerEmail);
+        console.log("[webhook] supabase booking updated, id:", bookingId);
       }
 
       // ── 2. Build shared booking details table ──────────────────────────────
@@ -137,6 +138,7 @@ export async function POST(req: Request) {
               <tr><td colspan="2" style="padding:8px 0 4px;border-top:1px solid #eee"></td></tr>
               ${detailRows}
               <tr><td colspan="2" style="padding:8px 0 4px;border-top:1px solid #eee"></td></tr>
+              ${bookingId ? `<tr><td style="padding:5px 12px 5px 0;color:#666;white-space:nowrap">Booking ID</td><td style="padding:5px 0;font-family:monospace;font-size:12px">${bookingId}</td></tr>` : ""}
               <tr><td style="padding:5px 12px 5px 0;color:#666;white-space:nowrap">Stripe customer</td><td style="padding:5px 0;font-family:monospace;font-size:12px">${customerId}</td></tr>
               <tr><td style="padding:5px 12px 5px 0;color:#666;white-space:nowrap">Payment method</td><td style="padding:5px 0;font-family:monospace;font-size:12px">${paymentMethodId}</td></tr>
             </table>

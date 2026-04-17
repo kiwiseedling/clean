@@ -92,7 +92,7 @@ export default async function BookingSuccessPage({ searchParams }: BookingSucces
               </svg>
             </div>
             <p className="mb-2 text-xl font-black text-white" style={{ letterSpacing: "-0.02em" }}>
-              Your card will not be charged<br />until we complete the job.
+              Your card will not be charged<br /> until we complete the job.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "rgba(163,217,184,0.75)" }}>
               We saved your card securely via Stripe. <strong style={{ color: "#6abf8e" }}>No charge happens now.</strong> Once your crew finishes and you&apos;re satisfied, we charge the exact amount confirmed at booking — nothing more.
