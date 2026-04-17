@@ -51,25 +51,34 @@ export async function POST(req: Request) {
 
       const bookingId = meta.booking_id;
 
-      if (!customerId || !paymentMethodId || !customerEmail) {
-        console.error("[webhook] missing required fields", { customerId, paymentMethodId, customerEmail });
+      console.log("[webhook] received", { customerId, paymentMethodId, customerEmail, bookingId });
+
+      if (!customerId || !paymentMethodId || !customerEmail || !bookingId) {
+        console.error("[webhook] missing required fields", { customerId, paymentMethodId, customerEmail, bookingId });
         return new Response("ok");
       }
 
       // ── 1. Update Supabase bookings row by ID ──────────────────────────────
-      const { error: dbError } = await supabase
+      const { data: updatedRow, error: dbError } = await supabase
         .from("bookings")
         .update({
           stripe_customer_id: customerId,
           stripe_payment_method_id: paymentMethodId,
           payment_status: "card_saved",
         })
-        .eq("id", bookingId);
+        .eq("id", bookingId)
+        .select()
+        .single();
 
       if (dbError) {
-        console.error("[webhook] supabase update failed:", dbError);
+        console.error("[webhook] supabase update failed:", dbError.message);
       } else {
-        console.log("[webhook] supabase booking updated, id:", bookingId);
+        console.log("[webhook] booking updated — stripe IDs saved", {
+          id: updatedRow?.id,
+          stripe_customer_id: updatedRow?.stripe_customer_id,
+          stripe_payment_method_id: updatedRow?.stripe_payment_method_id,
+          payment_status: updatedRow?.payment_status,
+        });
       }
 
       // ── 2. Build shared booking details table ──────────────────────────────
