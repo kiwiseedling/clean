@@ -573,6 +573,17 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 ))}
               </div>
             </div>
+            {/* No-charge notice */}
+            <div className="flex items-start gap-3 rounded-2xl p-4" style={{ background: "rgba(34,118,74,0.12)", border: "1px solid rgba(106,191,142,0.2)" }}>
+              <svg className="mt-0.5 flex-shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6abf8e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <p className="text-xs leading-relaxed font-medium" style={{ color: "rgba(163,217,184,0.9)" }}>
+                Your card will <strong style={{ color: "#6abf8e" }}>not be charged</strong> until the job is complete and you&apos;ve confirmed everything went well.
+              </p>
+            </div>
+
             <label className="flex cursor-pointer items-start gap-3 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${consented ? "rgba(163,217,184,0.35)" : "rgba(255,255,255,0.1)"}` }}>
               <input
                 type="checkbox"
