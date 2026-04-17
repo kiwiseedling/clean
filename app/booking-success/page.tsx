@@ -68,7 +68,7 @@ export default async function BookingSuccessPage({ searchParams }: BookingSucces
 
           {/* Email sent badge */}
           <div
-            className="mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2"
+            className="mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2"
             style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6abf8e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -80,17 +80,22 @@ export default async function BookingSuccessPage({ searchParams }: BookingSucces
             </span>
           </div>
 
-          {/* No-charge callout */}
+          {/* No-charge big block */}
           <div
-            className="inline-flex items-center gap-2.5 rounded-2xl px-5 py-3"
-            style={{ background: "rgba(34,118,74,0.14)", border: "1px solid rgba(106,191,142,0.22)" }}
+            className="w-full rounded-[24px] p-6 text-left"
+            style={{ background: "rgba(34,118,74,0.14)", border: "1px solid rgba(106,191,142,0.25)" }}
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6abf8e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            <p className="text-sm font-semibold" style={{ color: "rgba(163,217,184,0.9)" }}>
-              Your card will not be charged until the job is complete.
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full" style={{ background: "rgba(34,118,74,0.3)", border: "1px solid rgba(106,191,142,0.35)" }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6abf8e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <p className="mb-2 text-xl font-black text-white" style={{ letterSpacing: "-0.02em" }}>
+              Your card will not be charged<br />until we complete the job.
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: "rgba(163,217,184,0.75)" }}>
+              We saved your card securely via Stripe. <strong style={{ color: "#6abf8e" }}>No charge happens now.</strong> Once your crew finishes and you&apos;re satisfied, we charge the exact amount confirmed at booking — nothing more.
             </p>
           </div>
 

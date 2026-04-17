@@ -383,29 +383,42 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
 
       case "confirm":
         return (
-          <div style={{ ...glass, marginTop: "48px" }}>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Final Price</p>
-            <p className="mb-0.5 text-5xl font-black text-white" style={{ letterSpacing: "-0.04em" }}>{formatMoney(livePrice)}</p>
-            <p className="mb-5 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Labor, hauling &amp; disposal included</p>
-            <div className="mb-4 rounded-xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", marginTop: "24px", opacity: 0.5 }}>
-              <div className="space-y-2.5">
-                {[
-                  ["Items", `${itemLabel} · ${loadLabel}`],
-                  ["Pickup", `${scheduleLabel || "–"} · ${timeLabel || "–"} window`],
-                  ["Address", address || "See form"],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex items-start justify-between gap-4 text-xs">
-                    <span style={{ color: "rgba(255,255,255,0.35)" }}>{k}</span>
-                    <span className="text-right" style={{ color: "rgba(255,255,255,0.65)" }}>{v}</span>
-                  </div>
-                ))}
+          <div style={{ marginTop: "48px" }} className="space-y-4">
+            {/* Price summary */}
+            <div style={glass}>
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Final Price</p>
+              <p className="mb-0.5 text-5xl font-black text-white" style={{ letterSpacing: "-0.04em" }}>{formatMoney(livePrice)}</p>
+              <p className="mb-5 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Labor, hauling &amp; disposal included</p>
+              <div className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", opacity: 0.7 }}>
+                <div className="space-y-2.5">
+                  {[
+                    ["Items", `${itemLabel} · ${loadLabel}`],
+                    ["Pickup", `${scheduleLabel || "–"} · ${timeLabel || "–"} window`],
+                    ["Address", address || "See form"],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex items-start justify-between gap-4 text-xs">
+                      <span style={{ color: "rgba(255,255,255,0.35)" }}>{k}</span>
+                      <span className="text-right" style={{ color: "rgba(255,255,255,0.65)" }}>{v}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-3.5 w-3.5 flex-shrink-0" style={{ color: accent }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Price locked once booked. No hidden fees.</p>
+
+            {/* No-charge block */}
+            <div className="rounded-[20px] p-5" style={{ background: "rgba(34,118,74,0.12)", border: "1px solid rgba(106,191,142,0.22)" }}>
+              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full" style={{ background: "rgba(34,118,74,0.25)", border: "1px solid rgba(106,191,142,0.3)" }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6abf8e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </div>
+              <p className="mb-1 text-sm font-black text-white" style={{ letterSpacing: "-0.01em" }}>
+                No charge until the job is done.
+              </p>
+              <p className="text-xs leading-relaxed" style={{ color: "rgba(163,217,184,0.7)" }}>
+                We save your card now but <strong style={{ color: "#6abf8e" }}>will not charge it</strong> until your crew completes the job. The amount shown is the amount you pay — nothing hidden.
+              </p>
             </div>
           </div>
         );
