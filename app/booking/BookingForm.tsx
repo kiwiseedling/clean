@@ -261,7 +261,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
           </div>
           <p className="mb-1 text-center text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Confirmed</p>
           <p className="mb-1 text-center text-4xl font-black text-white" style={{ letterSpacing: "-0.04em" }}>{formatMoney(livePrice)}</p>
-          <p className="mb-6 text-center text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>Price locked — no surprises</p>
+          <p className="mb-6 text-center text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>Price updates as you answer · Locked at booking · No charge until job is done</p>
           <div className="space-y-2.5">
             {["Instant SMS confirmation", "On-the-way text day of pickup", "Price verified before crew starts"].map((t) => (
               <div key={t} className="flex items-center gap-3">

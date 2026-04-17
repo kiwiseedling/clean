@@ -553,9 +553,14 @@ export default function ValetFormSection({ initialName = "", initialEmail = "" }
                       {submitError && (
                         <p className="text-xs" style={{ color: "#f87171" }}>{submitError}</p>
                       )}
+                      {!form.phone.trim() && !form.email.trim() && (
+                        <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+                          Add a phone number or email so we can reach you.
+                        </p>
+                      )}
                       <button
                         onClick={handleSubmit}
-                        disabled={submitting}
+                        disabled={submitting || (!form.phone.trim() && !form.email.trim())}
                         className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
                         style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}
                       >

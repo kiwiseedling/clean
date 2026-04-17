@@ -221,7 +221,7 @@ function Hero() {
             Get Instant Price <Arrow />
           </button>
 
-          <p className="mt-4 text-center text-xs text-gray-400">No credit card required · Free estimate</p>
+          <p className="mt-4 text-center text-xs text-gray-400">Price updates as you answer · Locked in at booking · No charge until the job is done</p>
         </div>
       </div>
     </section>
