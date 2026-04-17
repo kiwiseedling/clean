@@ -298,6 +298,8 @@ export function Footer() {
             <a href="#" className="transition-colors hover:text-white">Terms &amp; Conditions</a>
             <span className="mx-2">|</span>
             <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
+            <span className="mx-2">|</span>
+            <a href="/admin" className="transition-colors hover:text-white">Admin</a>
           </div>
         </div>
       </div>
