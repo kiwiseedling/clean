@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description:
     "Bulk waste collection, recycling pickup, and tenant cleanouts for property managers, contractors, and businesses. Free quote in 30 minutes. Same-day & next-day availability in the Bay Area.",
   keywords: ["commercial waste removal", "bulk waste pickup", "tenant cleanout", "recycling pickup", "construction debris removal", "property manager waste", "Bay Area waste services"],
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
