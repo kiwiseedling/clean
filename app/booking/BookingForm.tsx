@@ -246,14 +246,14 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
       borderRadius: "20px",
       padding: "28px",
     };
-    const accent = "#c8c8c8";
-    const accentDim = "rgba(200,200,200,0.65)";
+    const accent = "#6abf8e";
+    const accentDim = "rgba(163,217,184,0.65)";
 
     if (booked) {
       return (
         <div style={glass}>
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full"
-            style={{ background: "rgba(70,70,70,0.3)", border: "2px solid rgba(180,180,180,0.5)" }}>
+            style={{ background: "rgba(34,118,74,0.3)", border: "2px solid rgba(106,191,142,0.5)" }}>
             <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke={accent} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
@@ -283,17 +283,17 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <div className="relative mb-4 overflow-hidden rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", height: "110px", marginTop: "24px", opacity: 0.5 }}>
                 <svg className="absolute inset-0 h-full w-full" viewBox="0 0 260 110" fill="none" preserveAspectRatio="none">
                   <rect x="14" y="14" width="232" height="82" rx="5" stroke="rgba(255,255,255,0.07)" strokeWidth="1.5" />
-                  <rect x="26" y="26" width="50" height="46" rx="3" fill="rgba(70,70,70,0.18)" stroke="rgba(180,180,180,0.22)" strokeWidth="1" />
-                  <rect x="86" y="32" width="38" height="40" rx="3" fill="rgba(70,70,70,0.13)" stroke="rgba(180,180,180,0.17)" strokeWidth="1" />
-                  <rect x="134" y="22" width="58" height="54" rx="3" fill="rgba(70,70,70,0.18)" stroke="rgba(180,180,180,0.22)" strokeWidth="1" />
-                  <rect x="202" y="36" width="34" height="38" rx="3" fill="rgba(70,70,70,0.13)" stroke="rgba(180,180,180,0.17)" strokeWidth="1" />
+                  <rect x="26" y="26" width="50" height="46" rx="3" fill="rgba(34,118,74,0.18)" stroke="rgba(106,191,142,0.22)" strokeWidth="1" />
+                  <rect x="86" y="32" width="38" height="40" rx="3" fill="rgba(34,118,74,0.13)" stroke="rgba(106,191,142,0.17)" strokeWidth="1" />
+                  <rect x="134" y="22" width="58" height="54" rx="3" fill="rgba(34,118,74,0.18)" stroke="rgba(106,191,142,0.22)" strokeWidth="1" />
+                  <rect x="202" y="36" width="34" height="38" rx="3" fill="rgba(34,118,74,0.13)" stroke="rgba(106,191,142,0.17)" strokeWidth="1" />
                 </svg>
-                <div className="animate-scan-line" style={{ position: "absolute", left: "12px", right: "12px", height: "2px", top: 0, background: "linear-gradient(90deg, transparent, #c8c8c8, transparent)", boxShadow: "0 0 10px rgba(180,180,180,0.7)" }} />
+                <div className="animate-scan-line" style={{ position: "absolute", left: "12px", right: "12px", height: "2px", top: 0, background: "linear-gradient(90deg, transparent, #6abf8e, transparent)", boxShadow: "0 0 10px rgba(106,191,142,0.7)" }} />
               </div>
             </div>
             <button type="button" onClick={nextStep}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-bold text-white transition-all hover:opacity-90"
-              style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
+              style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
               Continue <Arrow className="h-4 w-4" />
             </button>
           </>
@@ -305,9 +305,9 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Service Area</p>
             <p className="mb-5 text-lg font-bold leading-snug text-white">Bay Area wide.<br />Fully licensed &amp; insured.</p>
             <div className="relative mb-5 flex items-center justify-center" style={{ height: "100px", marginTop: "24px", opacity: 0.5 }}>
-              <div className="absolute animate-ping rounded-full" style={{ width: "84px", height: "84px", border: "1px solid rgba(180,180,180,0.18)", animationDuration: "2.5s" }} />
-              <div className="absolute animate-ping rounded-full" style={{ width: "54px", height: "54px", border: "1px solid rgba(180,180,180,0.28)", animationDuration: "2.5s", animationDelay: "0.6s" }} />
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-full" style={{ background: "rgba(70,70,70,0.4)", border: "2px solid rgba(180,180,180,0.6)" }}>
+              <div className="absolute animate-ping rounded-full" style={{ width: "84px", height: "84px", border: "1px solid rgba(106,191,142,0.18)", animationDuration: "2.5s" }} />
+              <div className="absolute animate-ping rounded-full" style={{ width: "54px", height: "54px", border: "1px solid rgba(106,191,142,0.28)", animationDuration: "2.5s", animationDelay: "0.6s" }} />
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full" style={{ background: "rgba(34,118,74,0.4)", border: "2px solid rgba(106,191,142,0.6)" }}>
                 <svg style={{ height: "20px", width: "20px" }} viewBox="0 0 24 24" fill={accent}>
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
@@ -328,16 +328,16 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             <p className="mb-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: accentDim }}>Your Window</p>
             <p className="mb-5 text-lg font-bold leading-snug text-white">On-time, every time.<br />We text when we&apos;re 20 min out.</p>
             <div className="mb-4 mt-6 space-y-2.5" style={{ opacity: 0.5 }}>
-              <div className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: "rgba(70,70,70,0.2)", border: "1px solid rgba(180,180,180,0.35)" }}>
+              <div className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: "rgba(34,118,74,0.2)", border: "1px solid rgba(106,191,142,0.35)" }}>
                 <div className="flex items-center gap-2.5">
                   <svg className="h-4 w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke={accent} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
                   <span className="text-sm font-semibold text-white">{scheduleLabel || "Next day"}</span>
                 </div>
-                <span className="rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: "rgba(180,180,180,0.2)", color: accent }}>SELECTED</span>
+                <span className="rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: "rgba(106,191,142,0.2)", color: accent }}>SELECTED</span>
               </div>
-              <div className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: "rgba(70,70,70,0.15)", border: "1px solid rgba(180,180,180,0.25)" }}>
+              <div className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: "rgba(34,118,74,0.15)", border: "1px solid rgba(106,191,142,0.25)" }}>
                 <div className="flex items-center gap-2.5">
                   <svg className="h-4 w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke={accent} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
@@ -372,7 +372,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 </div>
               </div>
               <div className="flex justify-end">
-                <div className="rounded-2xl rounded-tr-sm px-4 py-3" style={{ background: "rgba(70,70,70,0.25)", border: "1px solid rgba(180,180,180,0.2)", maxWidth: "85%" }}>
+                <div className="rounded-2xl rounded-tr-sm px-4 py-3" style={{ background: "rgba(34,118,74,0.25)", border: "1px solid rgba(106,191,142,0.2)", maxWidth: "85%" }}>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>Sounds good, see you then!</p>
                 </div>
               </div>
@@ -414,7 +414,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
 
   const btn = (active: boolean) =>
     active
-      ? { background: "rgba(70,70,70,0.3)", border: "1px solid rgba(180,180,180,0.6)", color: "white" }
+      ? { background: "rgba(34,118,74,0.3)", border: "1px solid rgba(106,191,142,0.6)", color: "white" }
       : { background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.6)" };
 
   const inputStyle: React.CSSProperties = {
@@ -434,9 +434,9 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               return (
                 <button key={option.id} type="button" onClick={() => setLoad(option.id)}
                   className="rounded-2xl p-4 text-left transition-all" style={btn(active)}>
-                  <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: active ? "#c8c8c8" : "rgba(255,255,255,0.4)" }}>{option.label}</p>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: active ? "#6abf8e" : "rgba(255,255,255,0.4)" }}>{option.label}</p>
                   <p className="mb-0.5 text-2xl font-black text-white" style={{ letterSpacing: "-0.03em" }}>{option.range}</p>
-                  <p className="mb-1.5 text-xs" style={{ color: active ? "rgba(180,180,180,0.7)" : "rgba(255,255,255,0.3)" }}>typical range</p>
+                  <p className="mb-1.5 text-xs" style={{ color: active ? "rgba(106,191,142,0.7)" : "rgba(255,255,255,0.3)" }}>typical range</p>
                   <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{option.example}</p>
                 </button>
               );
@@ -459,7 +459,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               />
               {addressLoading && (
                 <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
-                  <svg className="h-4 w-4 animate-spin" style={{ color: "rgba(180,180,180,0.6)" }} viewBox="0 0 24 24" fill="none">
+                  <svg className="h-4 w-4 animate-spin" style={{ color: "rgba(106,191,142,0.6)" }} viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeOpacity="0.25" />
                     <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                   </svg>
@@ -467,12 +467,12 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               )}
               {showSuggestions && addressSuggestions.length > 0 && (
                 <div className="absolute left-0 right-0 top-full z-50 mt-1.5 overflow-hidden rounded-2xl"
-                  style={{ background: "#161616", border: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 24px 48px rgba(0,0,0,0.5)" }}>
+                  style={{ background: "#0d2419", border: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 24px 48px rgba(0,0,0,0.5)" }}>
                   {addressSuggestions.map((s, i) => (
                     <button key={i} type="button" onMouseDown={() => selectAddress(s)}
                       className="flex w-full items-start gap-3 px-4 py-3 text-left text-sm transition-colors hover:bg-white/5"
                       style={{ borderBottom: i < addressSuggestions.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none" }}>
-                      <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" style={{ color: "rgba(180,180,180,0.5)" }} viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" style={{ color: "rgba(106,191,142,0.5)" }} viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                       </svg>
                       <span style={{ color: "rgba(255,255,255,0.75)" }}>{s}</span>
@@ -542,7 +542,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
           <div className="space-y-3">
             <div>
               <input type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address *"
-                className="w-full rounded-2xl px-4 py-3 text-sm" style={{ ...inputStyle, borderColor: email.trim() ? "rgba(180,180,180,0.4)" : "rgba(255,255,255,0.1)" }} />
+                className="w-full rounded-2xl px-4 py-3 text-sm" style={{ ...inputStyle, borderColor: email.trim() ? "rgba(106,191,142,0.4)" : "rgba(255,255,255,0.1)" }} />
               <p className="mt-1.5 text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>We'll send your confirmation here</p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -552,9 +552,9 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 className="w-full rounded-2xl px-4 py-3 text-sm" style={inputStyle} />
             </div>
             <label className="flex h-24 w-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed transition-all"
-              style={{ borderColor: photosAttached ? "#c8c8c8" : "rgba(255,255,255,0.12)", background: photosAttached ? "rgba(70,70,70,0.15)" : "rgba(255,255,255,0.03)" }}>
+              style={{ borderColor: photosAttached ? "#6abf8e" : "rgba(255,255,255,0.12)", background: photosAttached ? "rgba(34,118,74,0.15)" : "rgba(255,255,255,0.03)" }}>
               <input type="file" accept="image/*" multiple className="hidden" onChange={() => setPhotosAttached(true)} />
-              <Camera className="h-5 w-5" style={{ color: photosAttached ? "#c8c8c8" : "rgba(255,255,255,0.3)" } as React.CSSProperties} />
+              <Camera className="h-5 w-5" style={{ color: photosAttached ? "#6abf8e" : "rgba(255,255,255,0.3)" } as React.CSSProperties} />
               <p className="text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>{photosAttached ? "Photos attached" : "Optional: add photos"}</p>
             </label>
           </div>
@@ -567,13 +567,13 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <div className="space-y-2.5">
                 {[`${itemLabel} · ${loadLabel}`, address || "Address needed", `${scheduleLabel} · ${timeLabel}`, "Labor, hauling & disposal included"].map((text) => (
                   <div key={text} className="flex items-start gap-3">
-                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#c8c8c8" }} />
+                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#6abf8e" }} />
                     <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>{text}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <label className="flex cursor-pointer items-start gap-3 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${consented ? "rgba(200,200,200,0.35)" : "rgba(255,255,255,0.1)"}` }}>
+            <label className="flex cursor-pointer items-start gap-3 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${consented ? "rgba(163,217,184,0.35)" : "rgba(255,255,255,0.1)"}` }}>
               <input
                 type="checkbox"
                 checked={consented}
@@ -589,7 +589,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             )}
             <button type="button" disabled={!canBook || submitting} onClick={handleSubmit}
               className="w-full rounded-2xl py-4 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-              style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
+              style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
               {submitting ? "Redirecting to payment…" : `Save Card to Confirm Booking — ${formatMoney(livePrice)}`}
             </button>
           </div>
@@ -598,14 +598,14 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
   };
 
   return (
-    <div className="relative overflow-hidden pt-10 lg:pt-16" style={{ background: "#181818", minHeight: "100vh" }}>
+    <div className="relative overflow-hidden pt-10 lg:pt-16" style={{ background: "#071912", minHeight: "100vh" }}>
 
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-1/3 top-[20%] h-[600px] w-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, rgba(70,70,70,0.35) 0%, transparent 70%)", filter: "blur(80px)", transform: "translate(-50%, 0)" }} />
+          style={{ background: "radial-gradient(circle, rgba(34,118,74,0.35) 0%, transparent 70%)", filter: "blur(80px)", transform: "translate(-50%, 0)" }} />
         <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, rgba(180,180,180,0.2) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          style={{ background: "radial-gradient(circle, rgba(106,191,142,0.2) 0%, transparent 70%)", filter: "blur(60px)" }} />
       </div>
 
       {/* Step bar */}
@@ -618,7 +618,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <Fragment key={step.id}>
                 <button type="button" onClick={() => setActiveStep(step.id)} className="flex items-center gap-2 whitespace-nowrap">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold transition-all"
-                    style={active ? { background: "#3a3a3a", color: "white" } : done ? { background: "rgba(70,70,70,0.3)", color: "#c8c8c8" } : { background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.28)" }}>
+                    style={active ? { background: "#22764a", color: "white" } : done ? { background: "rgba(34,118,74,0.3)", color: "#6abf8e" } : { background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.28)" }}>
                     {done ? "✓" : i + 1}
                   </span>
                   <span className="hidden text-xs font-medium sm:block transition-all"
@@ -628,7 +628,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 </button>
                 {i < steps.length - 1 && (
                   <div className="mx-2 h-px flex-1 transition-all"
-                    style={{ background: done ? "rgba(70,70,70,0.4)" : "rgba(255,255,255,0.07)" }} />
+                    style={{ background: done ? "rgba(34,118,74,0.4)" : "rgba(255,255,255,0.07)" }} />
                 )}
               </Fragment>
             );
@@ -645,10 +645,10 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
             {booked ? (
               <div>
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full"
-                  style={{ background: "rgba(70,70,70,0.25)", border: "1px solid rgba(180,180,180,0.35)" }}>
-                  <Check className="h-5 w-5" style={{ color: "#c8c8c8" } as React.CSSProperties} />
+                  style={{ background: "rgba(34,118,74,0.25)", border: "1px solid rgba(106,191,142,0.35)" }}>
+                  <Check className="h-5 w-5" style={{ color: "#6abf8e" } as React.CSSProperties} />
                 </div>
-                <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: "#c8c8c8" }}>Confirmed</p>
+                <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: "#6abf8e" }}>Confirmed</p>
                 <h2 className="mb-3 font-black text-white" style={{ fontSize: "clamp(2rem,3.5vw,3rem)", letterSpacing: "-0.04em" }}>
                   {formatMoney(livePrice)} locked in.
                 </h2>
@@ -658,7 +658,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                 <div className="space-y-3">
                   {["SMS on the day — We're on the way.", "Crew verifies load before touching anything.", "Updated price shown if the load changed."].map((text) => (
                     <div key={text} className="flex items-center gap-3">
-                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#c8c8c8" }} />
+                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "#6abf8e" }} />
                       <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{text}</p>
                     </div>
                   ))}
@@ -668,7 +668,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
               <>
                 <div className="mb-6">
                   <div className="mb-1 flex items-center justify-between">
-                    <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(180,180,180,0.55)" }}>Step {stepIndex + 1} of {steps.length}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(106,191,142,0.55)" }}>Step {stepIndex + 1} of {steps.length}</p>
                     <div className="lg:hidden">
                       <AnimatedPrice value={livePrice} className="font-black text-white" style={{ fontSize: "1.5rem", letterSpacing: "-0.04em", lineHeight: 1 }} />
                     </div>
@@ -689,14 +689,14 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
                   {activeStep !== "confirm" && activeStep !== "amount" && (
                     <button type="button" onClick={nextStep} disabled={!canContinueDetails}
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-                      style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
+                      style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
                       Continue <Arrow className="h-4 w-4" />
                     </button>
                   )}
                   {activeStep === "amount" && (
                     <button type="button" onClick={nextStep}
                       className="lg:hidden inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-white transition-all hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg,#2e2e2e,#585858)" }}>
+                      style={{ background: "linear-gradient(135deg,#22764a,#3a9d66)" }}>
                       Continue <Arrow className="h-4 w-4" />
                     </button>
                   )}
@@ -709,7 +709,7 @@ export default function BookingExperience({ initialName = "", initialEmail = "" 
           <div className="hidden lg:block lg:sticky lg:top-28 space-y-5">
             {!booked && activeStep !== "confirm" && (
               <div>
-                <p className="mb-0.5 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(180,180,180,0.55)" }}>Estimated Total</p>
+                <p className="mb-0.5 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(106,191,142,0.55)" }}>Estimated Total</p>
                 <div className="flex items-baseline gap-3">
                   <AnimatedPrice value={livePrice} className="font-black text-white" style={{ fontSize: "clamp(3rem,5vw,4.5rem)", letterSpacing: "-0.05em", lineHeight: 1 }} />
                   <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.3)" }}>Updates as you answer · Labor, hauling &amp; disposal included</p>

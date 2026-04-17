@@ -36,11 +36,11 @@ body {
 }
 
 .gradient-hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #1e1e1e 40%, #242424 100%);
+  background: linear-gradient(135deg, #0a1f14 0%, #0f2d1f 40%, #1a3d2b 100%);
 }
 
 .gradient-section {
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  background: linear-gradient(135deg, #fcfaf7 0%, #f0f7f3 100%);
 }
 
 .card-shadow {
@@ -56,7 +56,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #333333 0%, #aaaaaa 100%);
+  background: linear-gradient(135deg, #22764a 0%, #6abf8e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
